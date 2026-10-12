@@ -1,0 +1,2 @@
+import {defineStore} from 'pinia';import {ref} from 'vue';import type {Scenario,ScenarioVersion} from '@/types'
+export const useScenarioStore=defineStore('scenario',()=>{const currentScenario=ref<Scenario|null>(null);const currentVersion=ref<ScenarioVersion|null>(null);function setScenario(value:Scenario|null){currentScenario.value=value;if(!value)currentVersion.value=null}function setVersion(value:ScenarioVersion|null){currentVersion.value=value}return {currentScenario,currentVersion,setScenario,setVersion}})

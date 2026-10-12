@@ -1,0 +1,3 @@
+import {http} from './http';import type {Site,Building,SiteOverview} from '@/types'
+export type SiteCreate=Omit<Site,'id'|'created_at'|'updated_at'>
+export const sitesApi={list:(params?:{enterprise_id?:number;site_type?:string;scope?:'ALL'|'BUSINESS'|'VALIDATION'})=>http.get<never,Site[]>('/api/sites',{params}),get:(id:number)=>http.get<never,Site>(`/api/sites/${id}`),create:(payload:SiteCreate)=>http.post<never,Site>('/api/sites',payload),overview:(id:number)=>http.get<never,SiteOverview>(`/api/sites/${id}/overview`),buildings:(id:number)=>http.get<never,Building[]>(`/api/sites/${id}/buildings`)}

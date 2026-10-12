@@ -1,0 +1,138 @@
+{
+  "invalid_previews_only_no_confirm": {
+    "duplicate_timestamp.csv": {
+      "total_rows": 2,
+      "valid_rows": 0,
+      "invalid_rows": 2,
+      "duplicate_rows": 1,
+      "existing_rows": 1,
+      "missing_intervals": 0,
+      "can_confirm": false,
+      "errors": [
+        {
+          "row": 3,
+          "field": "timestamp",
+          "code": "DUPLICATE_IN_FILE",
+          "message": "duplicates row 2"
+        },
+        {
+          "row": 2,
+          "field": "timestamp",
+          "code": "ALREADY_EXISTS",
+          "message": "timestamp already exists for enterprise"
+        }
+      ]
+    },
+    "missing_interval.csv": {
+      "total_rows": 2,
+      "valid_rows": 0,
+      "invalid_rows": 2,
+      "duplicate_rows": 0,
+      "existing_rows": 2,
+      "missing_intervals": 1,
+      "can_confirm": false,
+      "errors": [
+        {
+          "row": 0,
+          "field": "timestamp",
+          "code": "MISSING_INTERVALS",
+          "message": "1 expected intervals are missing"
+        },
+        {
+          "row": 2,
+          "field": "timestamp",
+          "code": "ALREADY_EXISTS",
+          "message": "timestamp already exists for enterprise"
+        },
+        {
+          "row": 3,
+          "field": "timestamp",
+          "code": "ALREADY_EXISTS",
+          "message": "timestamp already exists for enterprise"
+        }
+      ]
+    },
+    "future_timestamp.csv": {
+      "total_rows": 1,
+      "valid_rows": 0,
+      "invalid_rows": 1,
+      "duplicate_rows": 0,
+      "existing_rows": 0,
+      "missing_intervals": 0,
+      "can_confirm": false,
+      "errors": [
+        {
+          "row": 2,
+          "field": null,
+          "code": "INVALID_VALUE",
+          "message": "timestamp cannot be in the future"
+        }
+      ]
+    },
+    "invalid_unit.csv": {
+      "total_rows": 1,
+      "valid_rows": 0,
+      "invalid_rows": 1,
+      "duplicate_rows": 0,
+      "existing_rows": 0,
+      "missing_intervals": 0,
+      "can_confirm": false,
+      "errors": [
+        {
+          "row": 2,
+          "field": null,
+          "code": "INVALID_VALUE",
+          "message": "could not convert string to float: 'not-a-number'"
+        }
+      ]
+    },
+    "out_of_range.csv": {
+      "total_rows": 1,
+      "valid_rows": 0,
+      "invalid_rows": 1,
+      "missing_points": 0,
+      "can_confirm": false,
+      "errors": [
+        {
+          "row": 2,
+          "code": "INVALID_VALUE",
+          "message": "humidity_pct must be <= 100"
+        }
+      ]
+    }
+  },
+  "data_quality": {
+    "load": {
+      "enterprise_id": 1,
+      "timezone": "Asia/Shanghai",
+      "interval_minutes": 60,
+      "observed_points": 8784,
+      "expected_points": 8784,
+      "missing_points": 0,
+      "duplicate_points": 0,
+      "completeness_rate": 1.0,
+      "quality": "COMPLETE",
+      "missing_intervals": []
+    },
+    "weather": {
+      "site_id": 1,
+      "timezone": "Asia/Shanghai",
+      "interval_minutes": 60,
+      "observed_points": 8784,
+      "expected_points": 8784,
+      "missing_points": 0,
+      "completeness_rate": 1.0,
+      "quality": "COMPLETE",
+      "missing_intervals": []
+    },
+    "device_source": {
+      "data_source_id": 1,
+      "total_records": 61488,
+      "valid_records": 61488,
+      "quarantined_records": 0,
+      "warning_records": 0,
+      "quality_rate": 1.0,
+      "by_stage": {}
+    }
+  }
+}

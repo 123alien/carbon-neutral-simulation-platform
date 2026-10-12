@@ -1,0 +1,37 @@
+{
+  "data_class": "REAL_PUBLIC_OFFICIAL",
+  "record_count": 5,
+  "original_granularity": "ANNUAL",
+  "records_by_market": {
+    "NATIONAL_CCER": 1,
+    "NATIONAL_ETS": 2,
+    "NATIONAL_GEC": 2
+  },
+  "sources": {
+    "ETS_2024": {
+      "url": "https://www.mee.gov.cn/ywgz/ydqhbh/syqhbh/202501/t20250105_1099975.shtml",
+      "file": "mee_national_ets_2024.html",
+      "sha256": "3988ba15862a7b9fd63a9bed3c0baedc7493ca12855a0d10f0fcccc8f0c87ea4"
+    },
+    "ETS_CCER_2025": {
+      "url": "https://www.mee.gov.cn/ywgz/ydqhbh/wsqtkz/202601/t20260101_1139528.shtml",
+      "file": "mee_national_ets_ccer_2025.html",
+      "sha256": "223cb0b47110495b65508c1bbf65a14a788c4d1282897245e81a3d113484039d"
+    },
+    "GEC_2024": {
+      "url": "https://www.nea.gov.cn/download/zglsdlzsfzbg2024.pdf",
+      "file": "nea_green_certificate_report_2024.pdf",
+      "sha256": "18fd0573843105611f76dc0fff9990d76c10f7cf5523f139cbc2e95af58b711f"
+    },
+    "GEC_2025": {
+      "url": "https://www.nea.gov.cn/20260522/a6cedbcbc2764b80abc85836ee862461/c.html",
+      "file": "nea_green_certificate_2025.html",
+      "sha256": "a29c282e5a2ff3943c8dc2d078787b02c378ddf3d37532b7964033c54e84cdb9"
+    }
+  },
+  "limitations": [
+    "national aggregate statistics, not enterprise transactions or holdings",
+    "CCER has one annual observation; no synthetic trend",
+    "no interpolation or conversion to daily/monthly frequency"
+  ]
+}

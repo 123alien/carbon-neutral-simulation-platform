@@ -1,0 +1,33 @@
+{
+  "schema_version": "P4-1-v1",
+  "scenario_id": 1,
+  "scenario_version_id": 3,
+  "locked": true,
+  "compare_to": 3,
+  "data_class": "REAL_PUBLIC",
+  "dataset_provenance": {
+    "dataset_id": "BDG2_V1_RAT_2016",
+    "site_id": 1,
+    "site_code": "BDG2-RAT",
+    "site_name": "BDG2 Rat Validation Site",
+    "manifest": "real_public_datasets/manifests/bdg2_rat_2016_manifest.json",
+    "physical_scope": "One BDG2 site only; no cross-site composition"
+  },
+  "building_ids": [1, 2, 3, 4, 5],
+  "building_codes": ["Rat_education_Theo", "Rat_education_Kathryn", "Rat_office_Colby", "Rat_office_Avis", "Rat_public_Kimber"],
+  "time_range": {"start_utc": "2016-03-13T07:00:00Z", "end_utc_exclusive": "2016-11-06T04:00:00Z", "timezone": "US/Eastern", "points": 5709, "completeness_rate": 1.0},
+  "input_totals": {"load_timeseries_kwh": 25543735.06, "device_metric_energy_kwh": 25543735.06, "accounting_activity_kwh": 25543735.06, "peak_load_kw": 7290.88, "weather_points": 5709},
+  "factors": {"grid_emission": {"value": 0.452866622208, "unit": "kgCO2/kWh", "source": "US EPA eGRID2016 Summary Tables, U.S. total output CO2 rate", "version": "eGRID2016", "parameter_source": "REAL_PUBLIC_OFFICIAL"}},
+  "prices": {"electricity": {"value": 0.57, "unit": "CNY/kWh", "status": "FUNCTION_PARAMETER_ONLY", "note": "Engine fallback, not a site-matched settlement tariff"}, "feed_in": {"value": 0.42, "unit": "CNY/kWh", "status": "FUNCTION_PARAMETER_ONLY"}, "carbon": {"status": "NOT_VERIFIED"}},
+  "model_versions": {"hourly_simulation": "1.0.0-alpha.11", "load": "observed-hourly-v1", "weather_provider": "database", "grid_factor_provider": "annual-factor-fallback"},
+  "parameter_sources": {"load": "REAL_PUBLIC", "weather": "REAL_PUBLIC", "building_metadata": "REAL_PUBLIC", "grid_factor": "REAL_PUBLIC_OFFICIAL", "electricity_price": "FUNCTION_PARAMETER_ONLY", "wind_pv_storage": "NO_NEW_MEASURE"},
+  "measure_set": {"PV": 0, "WIND": 0, "STORAGE": 0, "HVAC": 0, "LIGHTING": 0, "EV_CHARGER": 0, "GREEN_POWER": 0, "semantics": "No incremental measure; existing physical assets would remain baseline assets"},
+  "experiment_targets": {"target_peak_year": null, "target_neutrality_year": null, "carbon_quota": null, "comprehensive_energy_target": null, "budget": null, "max_payback_years": null, "renewable_ratio_target": null},
+  "profiles": {"ECONOMIC": {"weight_source": "existing default profile"}, "REDUCTION": {"weight_source": "existing default profile"}, "BALANCED": {"weight_source": "existing default profile"}},
+  "baseline_metrics": {"total_energy_kwh": 25543735.06, "grid_import_kwh": 25543735.06, "renewable_generation_kwh": 0.0, "scope1_tco2e": "NOT_VERIFIED", "scope2_tco2e": 11567.905015198288, "total_emission_tco2e": 11567.905015198288, "peak_load_kw": 7290.88, "electricity_cost": "NOT_VERIFIED", "carbon_cost": "NOT_VERIFIED", "total_cost": "NOT_VERIFIED", "renewable_ratio": 0.0, "max_energy_balance_error_kwh": 0.0},
+  "accounting_simulation_bridge": {"device_metric_kwh": 25543735.06, "load_timeseries_kwh": 25543735.06, "carbon_accounting_input_kwh": 25543735.06, "difference_kwh": 0.0, "status": "CONSISTENT", "note": "DeviceMetric has five building facts per hour; LoadTimeseries stores their hourly site aggregate"},
+  "repeatability_task_ids": [2, 3],
+  "repeatability_status": "IDENTICAL",
+  "report_trace": {"accounting_run_id": 3, "simulation_task_ids": [2, 3], "report_task_id": 4},
+  "checksum": "sha256:e96d931e8058920484b2fbe00678202ba7fca1e773d316c0e9bd576233d8c5cd"
+}

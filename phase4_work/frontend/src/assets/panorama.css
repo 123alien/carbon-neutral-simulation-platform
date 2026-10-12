@@ -1,0 +1,163 @@
+.live-source-notice {
+  position: fixed;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  background: #073746ee;
+  color: #c6e9e9;
+  border: 1px solid #287886;
+  padding: 4px 12px;
+  font-size: 10px;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.visual-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  clip-path: none;
+}
+.visual-panel h2,
+.visual-panel h3,
+.metric-grid,
+.energy-strip,
+.rank-buttons,
+.status-row {
+  flex-shrink: 0;
+}
+.visual-panel :deep(.chart-wrap) {
+  flex: 1;
+  min-height: 0;
+  height: auto !important;
+}
+.visual-panel :deep(.chart-canvas) {
+  height: 100%;
+}
+.left-bottom .rank-buttons {
+  max-height: 45%;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+.scene-stage {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  min-height: 0;
+}
+.scene-caption {
+  position: relative;
+  inset: auto;
+  left: auto;
+  right: auto;
+  top: auto;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #0b3447;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.scene-caption h2 {
+  font-size: 15px;
+  color: #d8f6f3;
+  text-shadow: none;
+}
+.scene-caption span,
+.scene-caption small {
+  color: #9ac7cf;
+  text-shadow: none;
+}
+.scene-controls {
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: flex-end;
+}
+.spatial-viewport {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+}
+.spatial-viewport :deep(.three-shell) {
+  height: 100%;
+  min-height: 0;
+}
+.scene-stage .scene-kpis {
+  position: relative;
+  inset: auto;
+  gap: 6px;
+  padding: 8px 10px;
+  background: #0b3447;
+  min-width: 0;
+}
+.scene-stage .scene-kpis div {
+  min-width: 0;
+  padding: 6px;
+}
+.scene-kpis b {
+  font-size: 16px;
+  white-space: nowrap;
+}
+.scene-stage .timeline {
+  position: relative;
+  inset: auto;
+  margin: 0;
+  padding: 4px 10px;
+  grid-template-columns: 170px minmax(0, 1fr);
+}
+.scene-stage :deep(.gis-legend) {
+  bottom: 58px;
+}
+.scene-stage :deep(.trajectory-panel) {
+  top: 130px;
+  bottom: 55px;
+  max-height: none;
+  width: 220px;
+  box-sizing: border-box;
+}
+.scene-stage :deep(.layer-control) {
+  max-width: 220px;
+  box-sizing: border-box;
+}
+.head-controls time {
+  white-space: nowrap;
+}
+@media (min-width: 1301px) and (max-height: 850px) {
+  .visual-panel {
+    padding: 10px;
+  }
+  .panorama-screen .metric-grid button {
+    padding: 6px;
+  }
+  .panorama-screen .metric-grid b {
+    font-size: 18px;
+    margin-top: 2px;
+  }
+  .panorama-screen .metric-grid span {
+    font-size: 9px;
+  }
+  .visual-panel h2 {
+    font-size: 13px;
+    padding-bottom: 6px;
+    margin-bottom: 6px;
+  }
+  .visual-panel h3 {
+    margin: 5px 0 0;
+  }
+  .energy-strip span {
+    padding: 4px;
+    font-size: 9px;
+  }
+  .rank-buttons button {
+    padding: 5px;
+    font-size: 10px;
+  }
+}
+@media (min-width: 1301px) {
+  .panorama-screen-head {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+  .panorama-dashboard {
+    height: calc(100vh - 96px);
+    grid-template-columns: 22fr 56fr 22fr;
+    grid-template-rows: minmax(0, 44fr) minmax(0, 24fr) minmax(0, 32fr);
+  }
+}

@@ -1,0 +1,17 @@
+campus_id,building_id,building_name,business_type,energy_systems,device_groups,data_class
+HBUE,HBUE-B001,湖北经济学院行政楼,行政办公,供配电;给水;空调;照明,电表;水表;空调设备;照明设备,DEMO_SIMULATION
+HBUE,HBUE-B002,大学生活动中心,校园活动,供配电;给水;空调;照明;储能,电表;水表;空调设备;照明设备;储能设备,DEMO_SIMULATION
+HBUE,HBUE-B003,室内体育馆,体育场馆,供配电;给水;空调;照明;充电设施,电表;水表;空调设备;照明设备;充电桩,DEMO_SIMULATION
+HBUE,HBUE-B004,校医院,医疗服务,供配电;给水;空调;照明,电表;水表;空调设备;照明设备,DEMO_SIMULATION
+HBUE,HBUE-B006,法商学院综合楼,教学办公,供配电;给水;空调;照明,电表;水表;空调设备;照明设备,DEMO_SIMULATION
+HBUE,HBUE-B009,三清园,餐饮服务,供配电;给水;天然气;空调;照明,电表;水表;燃气表;空调设备;照明设备,DEMO_SIMULATION
+HBUE,HBUE-B041,实验楼一,实验教学,供配电;给水;空调;照明,电表;水表;空调设备;照明设备,DEMO_SIMULATION
+HBUE,HBUE-B042,知行楼,教学,供配电;给水;空调;照明,电表;水表;空调设备;照明设备,DEMO_SIMULATION
+HBUE,HBUE-B043,实验楼二,实验教学,供配电;给水;空调;照明,电表;水表;空调设备;照明设备,DEMO_SIMULATION
+HBUE,HBUE-B046,人文艺术楼,艺术教学,供配电;给水;空调;照明,电表;水表;空调设备;照明设备,DEMO_SIMULATION
+HBUE,HBUE-B048,群贤楼,教学,供配电;给水;空调;照明,电表;水表;空调设备;照明设备,DEMO_SIMULATION
+HBUE,HBUE-B049,教学楼三,教学,供配电;给水;空调;照明,电表;水表;空调设备;照明设备,DEMO_SIMULATION
+HBUE,HBUE-B119,教学楼二,教学,供配电;给水;空调;照明,电表;水表;空调设备;照明设备,DEMO_SIMULATION
+HBUE,HBUE-B120,教学楼一,教学,供配电;给水;空调;照明,电表;水表;空调设备;照明设备,DEMO_SIMULATION
+HBUE,HBUE-B124,湖北经济学院枫苑宿舍,学生住宿,供配电;给水;空调;照明,电表;水表;空调设备;照明设备,DEMO_SIMULATION
+HBUE,HBUE-B125,香帅楼,教学办公,供配电;给水;空调;照明;分布式光伏,电表;水表;空调设备;照明设备;光伏设备,DEMO_SIMULATION

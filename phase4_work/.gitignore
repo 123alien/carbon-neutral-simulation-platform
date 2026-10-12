@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.*.example
+__pycache__/
+frontend/node_modules/
+frontend/dist/
+frontend/test-results/
+frontend/playwright-report/
+*.tsbuildinfo
+.pytest_cache/
+# Generated frontend copies must not shadow the maintained TypeScript/Vue source.
+frontend/src/**/*.js
+frontend/vite.config.js
+frontend/vite.config.d.ts

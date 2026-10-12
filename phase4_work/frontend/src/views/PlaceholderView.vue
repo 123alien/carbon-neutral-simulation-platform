@@ -1,0 +1,2 @@
+<script setup lang="ts">import {useRoute} from 'vue-router';import PageHeader from '@/components/PageHeader.vue';const route=useRoute();</script>
+<template><section><PageHeader kicker="MODULE" :title="String(route.meta.title)" description="业务路由与页面框架已经就绪，详细功能将在后续 P2 阶段逐步建设。"/><div class="placeholder-panel"><div class="placeholder-orbit"><el-icon><DataAnalysis/></el-icon></div><h2>{{route.meta.title}}</h2><p>当前模块为框架占位页，已纳入统一导航、标题、面包屑和错误处理体系。</p><el-tag effect="plain">V1.0.0-beta.10</el-tag></div></section></template>

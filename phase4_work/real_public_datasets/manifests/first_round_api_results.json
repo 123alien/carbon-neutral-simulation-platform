@@ -1,0 +1,514 @@
+{
+  "data_class": "REAL_PUBLIC",
+  "api": "http://127.0.0.1:8000",
+  "source": "REAL_PUBLIC | Building Data Genome 2 v1.0 | DOI 10.5281/zenodo.3887306",
+  "enterprise": {
+    "name": "BDG2 Rat Validation Workspace",
+    "region": "US-NATIONAL-CO2",
+    "industry": "Public research validation",
+    "building_area": 189731.2,
+    "population": null,
+    "latitude": 38.9035039800032,
+    "longitude": -77.0053494170663,
+    "base_year": 2016,
+    "id": 1,
+    "created_at": "2026-08-25T09:00:14.326856",
+    "updated_at": "2026-08-25T09:06:42.651041"
+  },
+  "site": {
+    "enterprise_id": 1,
+    "code": "BDG2-RAT",
+    "name": "BDG2 Rat Validation Site",
+    "site_type": "PUBLIC_INSTITUTION",
+    "organization_node_id": 1,
+    "address": null,
+    "area_m2": 189731.2,
+    "population": null,
+    "timezone": "US/Eastern",
+    "status": "ACTIVE",
+    "metadata_json": {
+      "data_class": "REAL_PUBLIC",
+      "dataset_id": "BDG2_V1_RAT_2016",
+      "publisher": "BUDS Lab / National University of Singapore",
+      "source_url": "https://github.com/buds-lab/building-data-genome-project-2",
+      "geographic_precision": "site/city-level coordinates supplied by dataset"
+    },
+    "longitude": -77.0053494170663,
+    "latitude": 38.9035039800032,
+    "position_json": null,
+    "geometry_json": null,
+    "id": 1,
+    "created_at": "2026-08-25T09:00:14.364947",
+    "updated_at": "2026-08-25T09:00:14.364950"
+  },
+  "buildings": [
+    {
+      "organization_node_id": 1,
+      "code": "Rat_education_Theo",
+      "name": "Rat_education_Theo",
+      "building_type": "Education",
+      "area_m2": 26830.4,
+      "floor_count": null,
+      "population": null,
+      "status": "ACTIVE",
+      "metadata_json": {
+        "data_class": "REAL_PUBLIC",
+        "dataset_id": "BDG2_V1_RAT_2016",
+        "subtype": "K-12 School"
+      },
+      "longitude": null,
+      "latitude": null,
+      "position_json": null,
+      "geometry_json": null,
+      "id": 1,
+      "site_id": 1,
+      "created_at": "2026-08-25T09:01:01.819992",
+      "updated_at": "2026-08-25T09:01:01.819995"
+    },
+    {
+      "organization_node_id": 1,
+      "code": "Rat_education_Kathryn",
+      "name": "Rat_education_Kathryn",
+      "building_type": "Education",
+      "area_m2": 30213.6,
+      "floor_count": null,
+      "population": null,
+      "status": "ACTIVE",
+      "metadata_json": {
+        "data_class": "REAL_PUBLIC",
+        "dataset_id": "BDG2_V1_RAT_2016",
+        "subtype": "K-12 School"
+      },
+      "longitude": null,
+      "latitude": null,
+      "position_json": null,
+      "geometry_json": null,
+      "id": 2,
+      "site_id": 1,
+      "created_at": "2026-08-25T09:01:01.830876",
+      "updated_at": "2026-08-25T09:01:01.830879"
+    },
+    {
+      "organization_node_id": 1,
+      "code": "Rat_office_Colby",
+      "name": "Rat_office_Colby",
+      "building_type": "Office",
+      "area_m2": 79000.4,
+      "floor_count": null,
+      "population": null,
+      "status": "ACTIVE",
+      "metadata_json": {
+        "data_class": "REAL_PUBLIC",
+        "dataset_id": "BDG2_V1_RAT_2016",
+        "subtype": "Office"
+      },
+      "longitude": null,
+      "latitude": null,
+      "position_json": null,
+      "geometry_json": null,
+      "id": 3,
+      "site_id": 1,
+      "created_at": "2026-08-25T09:01:01.839718",
+      "updated_at": "2026-08-25T09:01:01.839720"
+    },
+    {
+      "organization_node_id": 1,
+      "code": "Rat_office_Avis",
+      "name": "Rat_office_Avis",
+      "building_type": "Office",
+      "area_m2": 44099.2,
+      "floor_count": null,
+      "population": null,
+      "status": "ACTIVE",
+      "metadata_json": {
+        "data_class": "REAL_PUBLIC",
+        "dataset_id": "BDG2_V1_RAT_2016",
+        "subtype": "Office"
+      },
+      "longitude": null,
+      "latitude": null,
+      "position_json": null,
+      "geometry_json": null,
+      "id": 4,
+      "site_id": 1,
+      "created_at": "2026-08-25T09:01:01.848291",
+      "updated_at": "2026-08-25T09:01:01.848294"
+    },
+    {
+      "organization_node_id": 1,
+      "code": "Rat_public_Kimber",
+      "name": "Rat_public_Kimber",
+      "building_type": "Public services",
+      "area_m2": 9587.6,
+      "floor_count": null,
+      "population": null,
+      "status": "ACTIVE",
+      "metadata_json": {
+        "data_class": "REAL_PUBLIC",
+        "dataset_id": "BDG2_V1_RAT_2016",
+        "subtype": "Police Station"
+      },
+      "longitude": null,
+      "latitude": null,
+      "position_json": null,
+      "geometry_json": null,
+      "id": 5,
+      "site_id": 1,
+      "created_at": "2026-08-25T09:01:01.856240",
+      "updated_at": "2026-08-25T09:01:01.856242"
+    }
+  ],
+  "energy_system": {
+    "site_id": 1,
+    "building_id": null,
+    "code": "BDG2-RAT-ELECTRICITY",
+    "name": "BDG2 Rat whole-building electricity meters",
+    "system_type": "ELECTRICITY",
+    "status": "ACTIVE",
+    "metadata_json": {
+      "data_class": "REAL_PUBLIC",
+      "dataset_id": "BDG2_V1_RAT_2016"
+    },
+    "id": 1,
+    "created_at": "2026-08-25T09:01:01.865086",
+    "updated_at": "2026-08-25T09:01:01.865088"
+  },
+  "data_source": {
+    "id": 1,
+    "enterprise_id": 1,
+    "name": "BDG2 Rat 2016 observed electricity",
+    "source_type": "FILE",
+    "config_json": {
+      "path": "C:\\Users\\13206\\Desktop\\碳中和仿真平台\\phase4_work\\real_public_datasets\\normalized\\bdg2_rat_2016\\device_metrics.csv",
+      "timezone": "US/Eastern",
+      "field_mapping": {},
+      "data_class": "REAL_PUBLIC",
+      "dataset_id": "BDG2_V1_RAT_2016",
+      "source_url": "https://github.com/buds-lab/building-data-genome-project-2"
+    },
+    "status": "ACTIVE",
+    "has_credentials": false,
+    "collection_mode": "MANUAL",
+    "schedule_enabled": false,
+    "interval_minutes": null,
+    "last_sync_at": "2026-08-25T09:03:31.804864",
+    "created_at": "2026-08-25T09:01:01.877115",
+    "updated_at": "2026-08-25T09:03:31.812793"
+  },
+  "data_sync": {
+    "extracted": 43910,
+    "inserted": 43910,
+    "quarantined": 0,
+    "warnings": 0,
+    "idempotent_resume": true
+  },
+  "metering_points": [
+    {
+      "site_id": 1,
+      "building_id": 1,
+      "energy_system_id": 1,
+      "device_id": 1,
+      "data_source_id": 1,
+      "code": "MP-Rat_education_Theo-ELECTRICITY",
+      "name": "Rat_education_Theo whole-building electricity",
+      "metric_type": "ENERGY",
+      "energy_type": "ELECTRICITY",
+      "unit": "kWh",
+      "status": "ACTIVE",
+      "metadata_json": {
+        "data_class": "REAL_PUBLIC",
+        "dataset_id": "BDG2_V1_RAT_2016"
+      },
+      "id": 1,
+      "created_at": "2026-08-25T09:03:32.590423",
+      "updated_at": "2026-08-25T09:03:32.590425"
+    },
+    {
+      "site_id": 1,
+      "building_id": 2,
+      "energy_system_id": 1,
+      "device_id": 2,
+      "data_source_id": 1,
+      "code": "MP-Rat_education_Kathryn-ELECTRICITY",
+      "name": "Rat_education_Kathryn whole-building electricity",
+      "metric_type": "ENERGY",
+      "energy_type": "ELECTRICITY",
+      "unit": "kWh",
+      "status": "ACTIVE",
+      "metadata_json": {
+        "data_class": "REAL_PUBLIC",
+        "dataset_id": "BDG2_V1_RAT_2016"
+      },
+      "id": 2,
+      "created_at": "2026-08-25T09:03:32.605196",
+      "updated_at": "2026-08-25T09:03:32.605199"
+    },
+    {
+      "site_id": 1,
+      "building_id": 3,
+      "energy_system_id": 1,
+      "device_id": 3,
+      "data_source_id": 1,
+      "code": "MP-Rat_office_Colby-ELECTRICITY",
+      "name": "Rat_office_Colby whole-building electricity",
+      "metric_type": "ENERGY",
+      "energy_type": "ELECTRICITY",
+      "unit": "kWh",
+      "status": "ACTIVE",
+      "metadata_json": {
+        "data_class": "REAL_PUBLIC",
+        "dataset_id": "BDG2_V1_RAT_2016"
+      },
+      "id": 3,
+      "created_at": "2026-08-25T09:03:32.617402",
+      "updated_at": "2026-08-25T09:03:32.617405"
+    },
+    {
+      "site_id": 1,
+      "building_id": 4,
+      "energy_system_id": 1,
+      "device_id": 4,
+      "data_source_id": 1,
+      "code": "MP-Rat_office_Avis-ELECTRICITY",
+      "name": "Rat_office_Avis whole-building electricity",
+      "metric_type": "ENERGY",
+      "energy_type": "ELECTRICITY",
+      "unit": "kWh",
+      "status": "ACTIVE",
+      "metadata_json": {
+        "data_class": "REAL_PUBLIC",
+        "dataset_id": "BDG2_V1_RAT_2016"
+      },
+      "id": 4,
+      "created_at": "2026-08-25T09:03:32.629964",
+      "updated_at": "2026-08-25T09:03:32.629966"
+    },
+    {
+      "site_id": 1,
+      "building_id": 5,
+      "energy_system_id": 1,
+      "device_id": 5,
+      "data_source_id": 1,
+      "code": "MP-Rat_public_Kimber-ELECTRICITY",
+      "name": "Rat_public_Kimber whole-building electricity",
+      "metric_type": "ENERGY",
+      "energy_type": "ELECTRICITY",
+      "unit": "kWh",
+      "status": "ACTIVE",
+      "metadata_json": {
+        "data_class": "REAL_PUBLIC",
+        "dataset_id": "BDG2_V1_RAT_2016"
+      },
+      "id": 5,
+      "created_at": "2026-08-25T09:03:32.645042",
+      "updated_at": "2026-08-25T09:03:32.645045"
+    }
+  ],
+  "load_preview": {
+    "can_confirm": true,
+    "total_rows": 5709,
+    "valid_rows": 5709,
+    "invalid_rows": 0,
+    "duplicate_rows": 0,
+    "existing_rows": 5709,
+    "interval_minutes": 60,
+    "missing_intervals": 0,
+    "preview": [],
+    "errors": [],
+    "idempotent_resume": true
+  },
+  "load_confirm": {
+    "inserted_rows": 5709,
+    "enterprise_id": 1,
+    "interval_minutes": 60,
+    "source": "REAL_PUBLIC | Building Data Genome 2 v1.0 | DOI 10.5281/zenodo.3887306",
+    "idempotent_resume": true
+  },
+  "weather_site": {
+    "enterprise_id": 1,
+    "name": "NASA POWER for BDG2 Rat coordinates",
+    "latitude": 38.9035039800032,
+    "longitude": -77.0053494170663,
+    "timezone": "UTC",
+    "source": "REAL_PUBLIC | NASA POWER hourly API",
+    "id": 1,
+    "created_at": "2026-08-25T09:03:33.289586"
+  },
+  "weather_preview": {
+    "can_confirm": true,
+    "total_rows": 5709,
+    "valid_rows": 5709,
+    "invalid_rows": 0,
+    "interval_minutes": 60,
+    "missing_points": 0,
+    "preview": [],
+    "errors": [],
+    "idempotent_resume": true
+  },
+  "weather_confirm": {
+    "site_id": 1,
+    "inserted_rows": 5709,
+    "interval_minutes": 60,
+    "idempotent_resume": true
+  },
+  "egrid_factor": {
+    "region": "US-NATIONAL-CO2",
+    "year": 2016,
+    "energy_type": "electricity",
+    "factor": 0.452866622208,
+    "unit": "kgCO2/kWh",
+    "source": "US EPA eGRID2016 Summary Tables, U.S. total output CO2 rate",
+    "version": "eGRID2016",
+    "id": 4
+  },
+  "china_factor_preview": {
+    "can_confirm": true,
+    "total_rows": 1,
+    "valid_rows": 1,
+    "invalid_rows": 0,
+    "preview": [],
+    "errors": [],
+    "idempotent_resume": true
+  },
+  "china_factor_confirm": {
+    "inserted_rows": 1,
+    "idempotent_resume": true
+  },
+  "accounting": {
+    "id": 3,
+    "enterprise_id": 1,
+    "name": "BDG2 Rat observed electricity Scope 2",
+    "period_start": "2016-03-13T07:00:00",
+    "period_end": "2016-11-06T04:00:00",
+    "status": "SUCCESS",
+    "scopes_json": [
+      "SCOPE_2"
+    ],
+    "summary_json": {
+      "activity_count": 28545,
+      "total_emission_t": 11567.905015198288,
+      "scope_counts": {
+        "SCOPE_2": 28545
+      },
+      "dynamic_factor_points_available": 0
+    },
+    "created_at": "2026-08-25T09:06:45.603324"
+  },
+  "accounting_statistics": {
+    "run_id": 3,
+    "granularity": "month",
+    "dimension": "scope",
+    "timezone": "US/Eastern",
+    "total_emission_t": 11567.905015198265,
+    "items": [
+      {
+        "bucket_start": "2016-03-01T00:00:00-05:00",
+        "dimension_key": "SCOPE_2",
+        "emission_t": 884.0631282053909,
+        "record_count": 2265
+      },
+      {
+        "bucket_start": "2016-04-01T00:00:00-04:00",
+        "dimension_key": "SCOPE_2",
+        "emission_t": 1284.7691751800821,
+        "record_count": 3600
+      },
+      {
+        "bucket_start": "2016-05-01T00:00:00-04:00",
+        "dimension_key": "SCOPE_2",
+        "emission_t": 1498.6269870266433,
+        "record_count": 3720
+      },
+      {
+        "bucket_start": "2016-06-01T00:00:00-04:00",
+        "dimension_key": "SCOPE_2",
+        "emission_t": 1558.2202809835962,
+        "record_count": 3600
+      },
+      {
+        "bucket_start": "2016-07-01T00:00:00-04:00",
+        "dimension_key": "SCOPE_2",
+        "emission_t": 1657.377569975166,
+        "record_count": 3720
+      },
+      {
+        "bucket_start": "2016-08-01T00:00:00-04:00",
+        "dimension_key": "SCOPE_2",
+        "emission_t": 1793.202916869633,
+        "record_count": 3720
+      },
+      {
+        "bucket_start": "2016-09-01T00:00:00-04:00",
+        "dimension_key": "SCOPE_2",
+        "emission_t": 1576.4657111090835,
+        "record_count": 3600
+      },
+      {
+        "bucket_start": "2016-10-01T00:00:00-04:00",
+        "dimension_key": "SCOPE_2",
+        "emission_t": 1134.7787264262267,
+        "record_count": 3720
+      },
+      {
+        "bucket_start": "2016-11-01T00:00:00-04:00",
+        "dimension_key": "SCOPE_2",
+        "emission_t": 180.40051942244892,
+        "record_count": 600
+      }
+    ]
+  },
+  "scenario": {
+    "id": 1,
+    "enterprise_id": 1,
+    "name": "BDG2 Rat observed baseline",
+    "description": "Historical observed input; model output is simulation, not measurement",
+    "base_year": 2016,
+    "start_year": 2016,
+    "end_year": 2016,
+    "target_peak_year": null,
+    "target_neutral_year": null,
+    "baseline_growth_json": {
+      "electricity": 0,
+      "natural_gas": 0,
+      "coal": 0,
+      "oil": 0
+    },
+    "status": "ACTIVE",
+    "measures": [],
+    "scenario_type": "BASELINE",
+    "current_version_id": 1,
+    "created_at": "2026-08-25T09:07:12.851149"
+  },
+  "simulation_summary": {
+    "task_id": 1,
+    "scenario_version_id": 1,
+    "scenario_id": 1,
+    "year": 2016,
+    "hours": 5709,
+    "load_base_kwh": 25543735.06,
+    "energy_saved_kwh": 0.0,
+    "pv_generation_kwh": 0.0,
+    "pv_self_use_kwh": 0.0,
+    "pv_export_kwh": 0.0,
+    "grid_power_kwh": 25543735.06,
+    "carbon_emission_t": 11567.905015198265,
+    "electricity_cost": 14559928.984199999,
+    "feed_in_revenue": 0.0,
+    "pv_self_consumption_rate": 0.0,
+    "pv_load_coverage_rate": 0.0,
+    "storage_charge_kwh": 0.0,
+    "storage_discharge_kwh": 0.0,
+    "curtailed_pv_kwh": 0.0,
+    "ending_storage_soc_kwh": 0.0,
+    "green_power_kwh": 0.0,
+    "green_power_carbon_reduction_t": 0.0,
+    "ev_charging_load_kwh": 0.0,
+    "wind_generation_kwh": 0.0,
+    "wind_self_use_kwh": 0.0,
+    "wind_export_kwh": 0.0,
+    "renewable_generation_kwh": 0.0,
+    "renewable_export_kwh": 0.0,
+    "curtailed_renewable_kwh": 0.0
+  },
+  "economics_validation": "NOT_VALIDATED: no geographically/time-matched real electricity tariff was applied; hourly engine fallback is not treated as observed price"
+}

@@ -1,0 +1,186 @@
+{
+  "active_version": 4,
+  "published_at": "2026-09-29T16:11:37.587139+00:00",
+  "change_note": "更新动态指标规则",
+  "parameters": {
+    "emission_factor_kg_per_kwh": 0.57
+  },
+  "rules": [
+    {
+      "code": "calculated_emission",
+      "name": "规则核算碳排",
+      "unit": "tCO₂e",
+      "category": "碳核算",
+      "formula": "electricity_kwh * emission_factor_kg_per_kwh / 1000",
+      "precision": 1,
+      "enabled": true
+    },
+    {
+      "code": "carbon_intensity",
+      "name": "用电碳排强度",
+      "unit": "kgCO₂e/kWh",
+      "category": "能效评价",
+      "formula": "carbon_t * 1000 / electricity_kwh",
+      "precision": 4,
+      "enabled": true
+    },
+    {
+      "code": "renewable_avoidance",
+      "name": "可再生能源减排量",
+      "unit": "tCO₂e",
+      "category": "碳核算",
+      "formula": "renewable_generation_kwh * emission_factor_kg_per_kwh / 1000",
+      "precision": 1,
+      "enabled": true
+    },
+    {
+      "code": "renewable_self_sufficiency",
+      "name": "可再生能源自给率",
+      "unit": "%",
+      "category": "能效评价",
+      "formula": "renewable_generation_kwh / electricity_kwh * 100",
+      "precision": 2,
+      "enabled": true
+    }
+  ],
+  "history": [
+    {
+      "active_version": 1,
+      "published_at": "2026-09-29T00:00:00+08:00",
+      "change_note": "初始动态指标规则",
+      "parameters": {
+        "emission_factor_kg_per_kwh": 0.57
+      },
+      "rules": [
+        {
+          "code": "calculated_emission",
+          "name": "规则核算碳排",
+          "unit": "tCO₂e",
+          "category": "碳核算",
+          "formula": "electricity_kwh * emission_factor_kg_per_kwh / 1000",
+          "precision": 1,
+          "enabled": true
+        },
+        {
+          "code": "carbon_intensity",
+          "name": "用电碳排强度",
+          "unit": "kgCO₂e/kWh",
+          "category": "能效评价",
+          "formula": "carbon_t * 1000 / electricity_kwh",
+          "precision": 4,
+          "enabled": true
+        },
+        {
+          "code": "renewable_avoidance",
+          "name": "可再生能源减排量",
+          "unit": "tCO₂e",
+          "category": "碳核算",
+          "formula": "renewable_generation_kwh * emission_factor_kg_per_kwh / 1000",
+          "precision": 1,
+          "enabled": true
+        },
+        {
+          "code": "renewable_self_sufficiency",
+          "name": "可再生能源自给率",
+          "unit": "%",
+          "category": "能效评价",
+          "formula": "renewable_generation_kwh / electricity_kwh * 100",
+          "precision": 2,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "active_version": 2,
+      "published_at": "2026-09-29T06:59:20.838791+00:00",
+      "change_note": "动态指标引擎完整流程验收发布",
+      "parameters": {
+        "emission_factor_kg_per_kwh": 0.57
+      },
+      "rules": [
+        {
+          "code": "calculated_emission",
+          "name": "规则核算碳排",
+          "unit": "tCO₂e",
+          "category": "碳核算",
+          "formula": "electricity_kwh * emission_factor_kg_per_kwh / 1000",
+          "precision": 1,
+          "enabled": true
+        },
+        {
+          "code": "carbon_intensity",
+          "name": "用电碳排强度",
+          "unit": "kgCO₂e/kWh",
+          "category": "能效评价",
+          "formula": "carbon_t * 1000 / electricity_kwh",
+          "precision": 4,
+          "enabled": true
+        },
+        {
+          "code": "renewable_avoidance",
+          "name": "可再生能源减排量",
+          "unit": "tCO₂e",
+          "category": "碳核算",
+          "formula": "renewable_generation_kwh * emission_factor_kg_per_kwh / 1000",
+          "precision": 1,
+          "enabled": true
+        },
+        {
+          "code": "renewable_self_sufficiency",
+          "name": "可再生能源自给率",
+          "unit": "%",
+          "category": "能效评价",
+          "formula": "renewable_generation_kwh / electricity_kwh * 100",
+          "precision": 2,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "active_version": 3,
+      "published_at": "2026-09-29T16:11:31.105062+00:00",
+      "change_note": "更新动态指标规则",
+      "parameters": {
+        "emission_factor_kg_per_kwh": 0.57
+      },
+      "rules": [
+        {
+          "code": "calculated_emission",
+          "name": "规则核算碳排",
+          "unit": "tCO₂e",
+          "category": "碳核算",
+          "formula": "electricity_kwh * emission_factor_kg_per_kwh / 1000",
+          "precision": 1,
+          "enabled": true
+        },
+        {
+          "code": "carbon_intensity",
+          "name": "用电碳排强度",
+          "unit": "kgCO₂e/kWh",
+          "category": "能效评价",
+          "formula": "carbon_t * 1000 / electricity_kwh",
+          "precision": 4,
+          "enabled": true
+        },
+        {
+          "code": "renewable_avoidance",
+          "name": "可再生能源减排量",
+          "unit": "tCO₂e",
+          "category": "碳核算",
+          "formula": "renewable_generation_kwh * emission_factor_kg_per_kwh / 1000",
+          "precision": 1,
+          "enabled": true
+        },
+        {
+          "code": "renewable_self_sufficiency",
+          "name": "可再生能源自给率",
+          "unit": "%",
+          "category": "能效评价",
+          "formula": "renewable_generation_kwh / electricity_kwh * 100",
+          "precision": 2,
+          "enabled": true
+        }
+      ]
+    }
+  ]
+}

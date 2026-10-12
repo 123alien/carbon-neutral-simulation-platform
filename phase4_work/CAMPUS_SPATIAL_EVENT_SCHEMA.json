@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "reserved-trajectory-spatial-reference-v1",
+  "title": "轨迹图层空间关联字段预留结构",
+  "description": "仅预留未来轨迹图层与校园空间对象的关联字段；不是跨镜追踪最终接口，不包含轨迹、人员、车辆或分类定义。",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["campus_id", "building_id", "floor_id", "area_id", "timestamp", "camera_id"],
+  "properties": {
+    "campus_id": {"type": "string", "examples": ["HBUE"]},
+    "building_id": {"type": ["string", "null"], "examples": ["HBUE-B001"]},
+    "floor_id": {"type": ["string", "null"]},
+    "area_id": {"type": ["string", "null"]},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "camera_id": {"type": ["string", "null"]}
+  }
+}

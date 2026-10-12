@@ -1,0 +1,15 @@
+{
+  "campus_osm_id": 908384239,
+  "building_count": 125,
+  "confirmed_named_count": 103,
+  "unknown_count": 22,
+  "requested_confirmed_count": 15,
+  "requested_pending_count": 3,
+  "generated_at": "2026-09-16T04:18:30Z",
+  "boundary_validation": "all building vertices inside campus boundary",
+  "excluded_cross_boundary": [
+    "way/101809639",
+    "way/101928812",
+    "way/102244668"
+  ]
+}

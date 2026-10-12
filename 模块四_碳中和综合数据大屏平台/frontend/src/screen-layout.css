@@ -1,0 +1,85 @@
+/* Layout alone: preserve the module-one GIS palette and business data. */
+.screen{height:100dvh;min-height:0;display:flex;flex-direction:column;gap:12px;padding:14px;overflow:hidden}
+.screen>header{flex:0 0 auto;padding-bottom:12px;min-height:48px}
+.screen>nav{flex:0 0 auto;margin:0;min-height:32px}
+.screen>.notice{flex:0 0 auto;margin:0}
+.screen>.kpis{flex:0 0 auto;margin:0;gap:10px}
+.kpis article{min-width:0;padding:12px}
+.kpis strong{font-size:clamp(17px,1.55vw,28px);margin:7px 0;letter-spacing:-.5px}
+.kpis strong i{font-size:10px;letter-spacing:0}
+.kpis small,.kpis span{font-size:11px}
+.screen>main{flex:1 1 0;height:auto;min-height:0;min-width:0;grid-template-columns:minmax(220px,1fr) minmax(0,2.8fr) minmax(220px,1fr);gap:12px}
+.screen>main>aside{display:grid;min-height:0;min-width:0;gap:12px;grid-template-rows:auto minmax(0,1fr) minmax(0,1fr)}
+.screen>main>aside:last-child{grid-template-rows:auto minmax(0,.8fr) minmax(0,1.2fr) auto}
+.overview-tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px}.overview-tabs button{padding:6px 8px;font-size:10px}.screen>main>aside:last-child.activity-aside{grid-template-rows:auto minmax(0,1fr)}.screen>main>aside:last-child.activity-aside .activity-panel{height:auto;max-height:none}
+.screen>main .panel{min-width:0;min-height:0;padding:13px;display:flex;flex-direction:column}
+.screen>main .panel.grow{flex:none;min-height:0;overflow:hidden}
+.screen>main h2{flex:0 0 auto;font-size:13px;margin:0 0 10px;padding-bottom:10px;line-height:1.5}
+.screen>main .source{padding:8px 0;font-size:11px}
+.screen>main .source em{margin-top:4px;font-size:10px}
+.screen>main .source small{display:block;margin-top:3px;color:#83aab4;font-size:9px;line-height:1.4}
+.screen>main>aside:first-child>.panel:first-child{display:grid;grid-template-columns:1fr 1fr;column-gap:8px}.screen>main>aside:first-child>.panel:first-child h2{grid-column:1/-1}.screen>main>aside:first-child>.panel:first-child .source{min-width:0;padding:5px 0}.screen>main>aside:first-child>.panel:first-child .source small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.screen>main .panel>p{flex:0 0 auto;font-size:11px;margin:6px 0 0;line-height:1.6}
+.screen>main .chart{min-height:0;min-width:0}
+.screen>main .map-panel{min-width:0;min-height:0;height:100%}
+.screen>main .map-stage{min-height:0;flex:1 1 0}
+.screen>main .map-head{flex:0 0 auto;padding:9px 12px;min-height:40px}
+.spatial-switch{display:flex;gap:4px;margin-left:auto;margin-right:8px}.spatial-switch button{padding:5px 8px;font-size:11px}.spatial-switch .active{background:#008e91;border-color:#37dbcf;color:white}
+.relief-view .gis-title{top:12px;left:12px;padding:8px 10px;gap:2px;box-shadow:0 3px 12px #123b4433}.relief-view .gis-title b{font-size:15px;letter-spacing:0}.relief-view .gis-title small{display:none}.relief-view .layer-control{top:12px;right:12px;padding:8px;gap:6px 8px;font-size:10px;box-shadow:0 3px 12px #123b4433}.relief-view .layer-control small{display:none}.relief-view .gis-legend{right:12px;bottom:12px;width:130px;padding:7px;gap:4px}
+.screen>main .map-panel footer{flex:0 0 auto;font-size:10px;padding:8px 12px}
+.screen>main .panel.activity-panel.grow{max-height:none;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-gutter:stable;overscroll-behavior:contain}
+.screen>main .activity-panel>*{flex-shrink:0}
+.screen>main .activity-panel p{margin:6px 0;line-height:1.5}
+.screen>main .activity-panel .activity-kind{padding:5px 0}
+.activity-rules{margin-bottom:8px;color:#98b5bf;font-size:11px}
+.activity-rules summary{cursor:pointer}
+.activity-source{color:#82aeb8}.activity-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin:8px 0}.activity-stats span{padding:7px 4px;text-align:center;background:#0b3344;border:1px solid #285e6c;color:#8fb5bd}.activity-stats b{display:block;color:#e8ffff;font-size:17px}.activity-kinds{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px}.activity-kinds label{padding:5px 7px;border:1px solid #315e69;border-radius:3px;color:#8fb6bd;cursor:pointer}.activity-kinds label.active{border-color:#26b9aa;color:#5de6d4;background:#15454c}.activity-kinds input{display:none}.selected-activity{padding:9px;border:1px solid #2aa899;background:#103b47;margin:7px 0}.selected-activity div{display:flex;justify-content:space-between;color:#ecffff}.selected-activity div span,.selected-activity small{color:#8fbdc3}.selected-activity p{word-break:break-all}.selected-activity button{width:100%;margin-top:7px}.object-picker{border-top:1px solid #28505c;padding-top:7px}.object-picker summary{cursor:pointer;color:#63dace}.object-picker>input,.object-picker>select,.object-picker>label{display:block;width:100%;margin:6px 0}.object-picker>label input{width:70px;margin-left:6px}
+.screen>main .gis-legend{right:52px;bottom:16px;width:160px}
+.screen>main .detail{max-height:calc(100% - 164px);overflow:auto}
+.screen.scroll-screen{height:auto;min-height:100dvh;overflow:visible}
+.scroll-screen>.simulation-workspace{flex:0 0 auto;margin-top:0}
+.scroll-screen>main{flex:none;height:640px}
+.scroll-screen>.config{margin-top:0}
+@media(min-width:1101px) and (max-height:850px){
+ .screen{padding:10px;gap:10px}
+ .screen>header{padding-bottom:8px;min-height:40px}
+ .screen h1{font-size:21px}
+ .brand small{font-size:10px;margin-top:4px}
+ .screen>nav button{padding:6px 12px}
+ .kpis article{padding:9px 11px}
+ .kpis strong{font-size:20px;margin:4px 0}
+ .kpis span{font-size:10px}
+ .kpis article>span{display:none}
+ .screen>main,.screen>main>aside{gap:10px}
+ .screen>main .panel{padding:10px}
+ .screen>main h2{margin-bottom:7px;padding-bottom:7px;font-size:12px}
+ .screen>main .source{padding:6px 0}
+ .screen>main .source em{margin-top:2px}
+ .screen>main .panel>p{font-size:10px}
+ .device-marquee{max-height:45px}
+ .device-marquee p{padding-top:4px;padding-bottom:4px}
+}
+@media(min-width:1101px) and (max-width:1300px){.device-marquee{height:88px}.device-marquee-group{min-height:88px}}
+@media(max-width:1100px){
+ .screen{height:auto;min-height:100dvh;overflow:visible}
+ .screen>nav{flex-wrap:wrap}
+ .screen>nav span{margin:0;width:100%}
+ .screen>main{flex:none;height:auto;grid-template-columns:minmax(220px,1fr) minmax(0,2fr)}
+ .screen>main>aside{grid-template-rows:auto 230px 230px}
+ .screen>main>.map-panel{height:720px}
+ .screen>main>aside:last-child{grid-column:1/-1;grid-template-columns:1fr 1fr;grid-template-rows:auto 260px auto}
+ .screen>main>aside:last-child>.overview-tabs{grid-column:1/-1}
+ .screen>main>aside:last-child.activity-aside{grid-template-columns:1fr;grid-template-rows:auto 480px}
+ .screen>main>aside:last-child>.panel:last-child{grid-column:1/-1}
+ .screen>main .activity-panel{height:480px;grid-row:span 2}
+ .screen>main .detail{max-height:calc(100% - 270px)}
+}
+@media(max-width:650px){
+ .screen{padding:10px}
+ .screen>main{grid-template-columns:minmax(0,1fr)}
+ .screen>main>aside:last-child{grid-template-columns:1fr;grid-template-rows:auto}
+ .screen>main>aside:last-child>.panel.grow{height:260px}
+ .screen>main>.map-panel{height:560px}
+ .screen>main .activity-panel{height:auto;max-height:600px;grid-row:auto}
+ .screen>main .gis-legend{width:140px}
+}

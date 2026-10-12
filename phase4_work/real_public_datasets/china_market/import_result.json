@@ -1,0 +1,178 @@
+{
+  "inserted": 0,
+  "record_count": 5,
+  "statistics": {
+    "region": "中国全国市场",
+    "start": null,
+    "end": null,
+    "record_count": 5,
+    "indicators": {
+      "carbon_price_per_t": {
+        "count": 2,
+        "sum": 159.85,
+        "average": 79.925,
+        "min": 62.36,
+        "max": 97.49
+      },
+      "carbon_quota_t": {
+        "count": 0,
+        "sum": null,
+        "average": null,
+        "min": null,
+        "max": null
+      },
+      "trading_volume_t": {
+        "count": 2,
+        "sum": 424000000.0,
+        "average": 212000000.0,
+        "min": 189000000.0,
+        "max": 235000000.0
+      },
+      "trading_amount_yuan": {
+        "count": 2,
+        "sum": 32744000000.0,
+        "average": 16372000000.0,
+        "min": 14630000000.0,
+        "max": 18114000000.0
+      },
+      "ccer_volume_t": {
+        "count": 1,
+        "sum": 9219400.0,
+        "average": 9219400.0,
+        "min": 9219400.0,
+        "max": 9219400.0
+      },
+      "ccer_price_per_t": {
+        "count": 1,
+        "sum": 70.76,
+        "average": 70.76,
+        "min": 70.76,
+        "max": 70.76
+      },
+      "ccer_trading_amount_yuan": {
+        "count": 1,
+        "sum": 650000000.0,
+        "average": 650000000.0,
+        "min": 650000000.0,
+        "max": 650000000.0
+      },
+      "green_certificate_volume": {
+        "count": 2,
+        "sum": 1376000000.0,
+        "average": 688000000.0,
+        "min": 446000000.0,
+        "max": 930000000.0
+      },
+      "green_certificate_price": {
+        "count": 2,
+        "sum": 11.16,
+        "average": 5.58,
+        "min": 5.57,
+        "max": 5.59
+      },
+      "green_certificate_issued_count": {
+        "count": 2,
+        "sum": 7681000000.0,
+        "average": 3840500000.0,
+        "min": 2947000000.0,
+        "max": 4734000000.0
+      },
+      "green_certificate_traded_count": {
+        "count": 2,
+        "sum": 1376000000.0,
+        "average": 688000000.0,
+        "min": 446000000.0,
+        "max": 930000000.0
+      }
+    },
+    "quality": "COMPLETE",
+    "records": [
+      {
+        "id": 7,
+        "region": "中国全国市场",
+        "timestamp": "2024-12-31T00:00:00",
+        "source": "REAL_PUBLIC_OFFICIAL | 国家能源局 | 中国绿色电力证书发展报告（2024） | market=NATIONAL_GEC | annual standalone-trade average | period=2024",
+        "carbon_price_per_t": null,
+        "carbon_quota_t": null,
+        "trading_volume_t": null,
+        "trading_amount_yuan": null,
+        "ccer_volume_t": null,
+        "ccer_price_per_t": null,
+        "ccer_trading_amount_yuan": null,
+        "green_certificate_volume": 446000000.0,
+        "green_certificate_price": 5.59,
+        "green_certificate_issued_count": 4734000000.0,
+        "green_certificate_traded_count": 446000000.0
+      },
+      {
+        "id": 4,
+        "region": "中国全国市场",
+        "timestamp": "2024-12-31T00:00:00",
+        "source": "REAL_PUBLIC_OFFICIAL | 生态环境部 | 2024年全国碳排放权交易市场配额交易及清缴工作顺利结束 | market=NATIONAL_ETS | year-end closing price | period=2024",
+        "carbon_price_per_t": 97.49,
+        "carbon_quota_t": null,
+        "trading_volume_t": 189000000.0,
+        "trading_amount_yuan": 18114000000.0,
+        "ccer_volume_t": null,
+        "ccer_price_per_t": null,
+        "ccer_trading_amount_yuan": null,
+        "green_certificate_volume": null,
+        "green_certificate_price": null,
+        "green_certificate_issued_count": null,
+        "green_certificate_traded_count": null
+      },
+      {
+        "id": 8,
+        "region": "中国全国市场",
+        "timestamp": "2025-12-31T00:00:00",
+        "source": "REAL_PUBLIC_OFFICIAL | 国家能源局 | 中国绿色电力证书发展报告（2025） | market=NATIONAL_GEC | 2025 production-year certificate average | period=2025",
+        "carbon_price_per_t": null,
+        "carbon_quota_t": null,
+        "trading_volume_t": null,
+        "trading_amount_yuan": null,
+        "ccer_volume_t": null,
+        "ccer_price_per_t": null,
+        "ccer_trading_amount_yuan": null,
+        "green_certificate_volume": 930000000.0,
+        "green_certificate_price": 5.57,
+        "green_certificate_issued_count": 2947000000.0,
+        "green_certificate_traded_count": 930000000.0
+      },
+      {
+        "id": 6,
+        "region": "中国全国市场",
+        "timestamp": "2025-12-31T00:00:00",
+        "source": "REAL_PUBLIC_OFFICIAL | 生态环境部 | 2025年全国碳市场平稳有序运行 | market=NATIONAL_CCER | annual average price | period=2025",
+        "carbon_price_per_t": null,
+        "carbon_quota_t": null,
+        "trading_volume_t": null,
+        "trading_amount_yuan": null,
+        "ccer_volume_t": 9219400.0,
+        "ccer_price_per_t": 70.76,
+        "ccer_trading_amount_yuan": 650000000.0,
+        "green_certificate_volume": null,
+        "green_certificate_price": null,
+        "green_certificate_issued_count": null,
+        "green_certificate_traded_count": null
+      },
+      {
+        "id": 5,
+        "region": "中国全国市场",
+        "timestamp": "2025-12-31T00:00:00",
+        "source": "REAL_PUBLIC_OFFICIAL | 生态环境部 | 2025年全国碳市场平稳有序运行 | market=NATIONAL_ETS | annual average price | period=2025",
+        "carbon_price_per_t": 62.36,
+        "carbon_quota_t": null,
+        "trading_volume_t": 235000000.0,
+        "trading_amount_yuan": 14630000000.0,
+        "ccer_volume_t": null,
+        "ccer_price_per_t": null,
+        "ccer_trading_amount_yuan": null,
+        "green_certificate_volume": null,
+        "green_certificate_price": null,
+        "green_certificate_issued_count": null,
+        "green_certificate_traded_count": null
+      }
+    ]
+  },
+  "data_class": "REAL_PUBLIC_OFFICIAL"
+}

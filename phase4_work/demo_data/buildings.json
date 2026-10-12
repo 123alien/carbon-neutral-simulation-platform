@@ -1,0 +1,58 @@
+[
+  {
+    "code": "B01",
+    "name": "办公楼A",
+    "building_type": "OFFICE",
+    "area_m2": 9800,
+    "floor_count": 12,
+    "population": 520,
+    "position_json": {
+      "coordinate_system": "LOCAL",
+      "x": -38,
+      "y": 0,
+      "z": -22
+    }
+  },
+  {
+    "code": "B02",
+    "name": "办公楼B",
+    "building_type": "OFFICE",
+    "area_m2": 8200,
+    "floor_count": 9,
+    "population": 430,
+    "position_json": {
+      "coordinate_system": "LOCAL",
+      "x": 25,
+      "y": 0,
+      "z": -25
+    }
+  },
+  {
+    "code": "B03",
+    "name": "实验楼",
+    "building_type": "LAB",
+    "area_m2": 8800,
+    "floor_count": 8,
+    "population": 390,
+    "position_json": {
+      "coordinate_system": "LOCAL",
+      "x": 48,
+      "y": 0,
+      "z": 22
+    }
+  },
+  {
+    "code": "B04",
+    "name": "综合服务楼",
+    "building_type": "SERVICE",
+    "area_m2": 7000,
+    "floor_count": 6,
+    "population": 240,
+    "position_json": {
+      "coordinate_system": "LOCAL",
+      "x": -24,
+      "y": 0,
+      "z": 36
+    }
+  }
+]

@@ -1,0 +1,276 @@
+{
+  "baseURL": "http://127.0.0.1:5173",
+  "checked_at": "2026-08-25T06:21:35.833Z",
+  "results": [
+    {
+      "route": "/dashboard",
+      "http_status": 200,
+      "title": "综合概览 | 碳中和仿真推演平台",
+      "headings": [
+        "综合概览",
+        "站点碳排概览",
+        "最新业务数据",
+        "站点运行概况",
+        "最近仿真任务"
+      ],
+      "body_length": 728,
+      "has_demo_site": true,
+      "fatal": [],
+      "canvas_count": 1
+    },
+    {
+      "route": "/data",
+      "http_status": 200,
+      "title": "数据中心 | 碳中和仿真推演平台",
+      "headings": [
+        "数据接入工作台",
+        "碳中和示范园区",
+        "最新数据",
+        "综合办公楼",
+        "能源消耗趋势",
+        "碳排趋势",
+        "建筑能源碳排构成",
+        "关联设备",
+        "园区电力系统 指标趋势",
+        "园区总电表 1",
+        "设备遥测趋势",
+        "园区总用电计量点"
+      ],
+      "body_length": 680,
+      "has_demo_site": true,
+      "fatal": [],
+      "canvas_count": 7,
+      "data_steps": {
+        "园区/站点": 1,
+        "建筑与能源系统": 0,
+        "设备与计量点": 0,
+        "数据源配置": 0,
+        "数据导入": 1,
+        "数据质量": 1
+      }
+    },
+    {
+      "route": "/carbon",
+      "http_status": 200,
+      "title": "碳排放管理 | 碳中和仿真推演平台",
+      "headings": [
+        "碳排放管理",
+        "总碳排趋势",
+        "Scope 构成",
+        "Scope 1 / Scope 2 趋势",
+        "能源排放构成",
+        "各能源排放趋势",
+        "能源排放分析",
+        "组织层级分析",
+        "节点关系与占比",
+        "核算记录",
+        "排放因子追溯"
+      ],
+      "body_length": 5739,
+      "has_demo_site": true,
+      "fatal": [],
+      "canvas_count": 6
+    },
+    {
+      "route": "/simulation?scenario_version=4",
+      "http_status": 200,
+      "title": "仿真推演 | 碳中和仿真推演平台",
+      "headings": [
+        "碳中和仿真工作台",
+        "基础配置",
+        "负荷与气象",
+        "低碳措施",
+        "光伏",
+        "风电",
+        "储能",
+        "空调节能",
+        "照明节能",
+        "充电桩",
+        "绿电",
+        "市场与碳因子"
+      ],
+      "body_length": 1162,
+      "has_demo_site": true,
+      "fatal": [],
+      "canvas_count": 0
+    },
+    {
+      "route": "/recommendations?run=1",
+      "http_status": 200,
+      "title": "低碳路径推荐 | 碳中和仿真推演平台",
+      "headings": [
+        "低碳路径推荐",
+        "目标配置",
+        "基础状态",
+        "推荐画像与评分权重",
+        "候选措施",
+        "生成推荐",
+        "经济优先",
+        "减排优先",
+        "综合平衡",
+        "五维评分雷达",
+        "Top-N 减排量",
+        "Top-N 投资额"
+      ],
+      "body_length": 2232,
+      "has_demo_site": true,
+      "fatal": [],
+      "canvas_count": 5
+    },
+    {
+      "route": "/scenarios?scenario=4",
+      "http_status": 200,
+      "title": "场景管理 | 碳中和仿真推演平台",
+      "headings": [
+        "场景管理与多场景推演",
+        "DEMO-BALANCED-2024",
+        "版本时间线",
+        "V1 完整参数快照",
+        "七类措施参数",
+        "电价、因子、绿电及扩展快照",
+        "多场景批量推演",
+        "批量任务状态",
+        "DEMO-BASELINE-2024",
+        "DEMO-ECONOMIC-2024",
+        "DEMO-REDUCTION-2024",
+        "DEMO-BALANCED-2024"
+      ],
+      "body_length": 3789,
+      "has_demo_site": true,
+      "fatal": [],
+      "canvas_count": 9
+    },
+    {
+      "route": "/carbon-market?scenario_version=4&task=4",
+      "http_status": 200,
+      "title": "碳市场 | 碳中和仿真推演平台",
+      "headings": [
+        "碳市场分析与碳成本评估",
+        "市场参数",
+        "市场指标趋势",
+        "配额分析",
+        "CCER 分析",
+        "绿证分析（非绿电）",
+        "碳成本构成",
+        "净碳排 / 原始碳排",
+        "数据来源与追溯"
+      ],
+      "body_length": 1124,
+      "has_demo_site": true,
+      "fatal": [],
+      "canvas_count": 6
+    },
+    {
+      "route": "/risks?scenario_version=4&task=4",
+      "http_status": 200,
+      "title": "风险评估 | 碳中和仿真推演平台",
+      "headings": [
+        "场景风险识别与比较",
+        "发起风险评估",
+        "六类风险等级",
+        "风险分布",
+        "风险明细与建议",
+        "历史快照追溯",
+        "场景风险比较",
+        "历史评估"
+      ],
+      "body_length": 1799,
+      "has_demo_site": true,
+      "fatal": [],
+      "canvas_count": 3
+    },
+    {
+      "route": "/reports?scenario_version=4&task=4",
+      "http_status": 200,
+      "title": "报告中心 | 碳中和仿真推演平台",
+      "headings": [
+        "碳中和可行性与风险评估报告",
+        "报告创建",
+        "创建输入摘要",
+        "碳中和示范园区可行性与风险评估报告（开发验证）",
+        "DOCX / PDF 文件",
+        "追溯链",
+        "结构化章节预览",
+        "年度碳排趋势",
+        "能源碳排构成",
+        "Scope 构成",
+        "多场景碳排",
+        "多场景累计减排"
+      ],
+      "body_length": 1448,
+      "has_demo_site": true,
+      "fatal": [],
+      "canvas_count": 9,
+      "docx_visible": true,
+      "pdf_visible": true,
+      "checksum_visible": true
+    },
+    {
+      "route": "/system",
+      "http_status": 200,
+      "title": "系统管理 | 碳中和仿真推演平台",
+      "headings": [
+        "系统管理与运行保障",
+        "数据源状态分布",
+        "最近任务状态分布",
+        "数据质量分布",
+        "运行提醒",
+        "WeatherProvider",
+        "ElectricityPriceProvider",
+        "GridEmissionFactorProvider",
+        "GreenPowerService",
+        "小时仿真模型注册状态",
+        "数据库与版本",
+        "非敏感配置"
+      ],
+      "body_length": 513,
+      "has_demo_site": true,
+      "fatal": [],
+      "canvas_count": 3
+    },
+    {
+      "route": "/screen",
+      "http_status": 200,
+      "title": "综合管理大屏 | 碳中和仿真推演平台",
+      "headings": [
+        "碳中和仿真推演综合管理平台",
+        "碳排放总体态势",
+        "低碳措施运行",
+        "低碳路径 Top 1",
+        "空间业务总览",
+        "多场景仿真比较",
+        "风险状态",
+        "能源与新能源",
+        "碳市场分析",
+        "系统运行状态",
+        "碳排趋势",
+        "能源供需趋势"
+      ],
+      "body_length": 1457,
+      "has_demo_site": true,
+      "fatal": [],
+      "canvas_count": 7
+    },
+    {
+      "route": "/3d",
+      "http_status": 200,
+      "title": "3D全景 | 碳中和仿真推演平台",
+      "headings": [
+        "3D 空间全景",
+        "空间对象",
+        "对象详情"
+      ],
+      "body_length": 385,
+      "has_demo_site": true,
+      "fatal": [],
+      "canvas_count": 1,
+      "building_names_visible": [
+        "综合办公楼",
+        "科研实验楼",
+        "数据中心",
+        "综合服务楼"
+      ]
+    }
+  ],
+  "console_errors": []
+}

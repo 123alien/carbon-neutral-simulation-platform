@@ -1,0 +1,2 @@
+<script setup lang="ts">import type {SpatialLayerMode} from '@/types';defineProps<{mode:SpatialLayerMode}>();</script>
+<template><div class="three-legend"><template v-if="mode==='CARBON'"><span><i class="high"></i>有碳排数据</span><span><i class="nodata"></i>暂无数据</span></template><template v-else-if="mode==='ENERGY'"><span><i class="energy"></i>能源对象</span><span><i class="nodata"></i>暂无数据</span></template><template v-else><span><i class="device"></i>设备</span><span><i class="building"></i>建筑</span></template></div></template>

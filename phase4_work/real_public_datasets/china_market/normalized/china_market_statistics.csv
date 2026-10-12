@@ -1,0 +1,6 @@
+market,period,timestamp,carbon_price_per_t,price_basis,trading_volume_t,trading_amount_yuan,source_key,year_end_price_per_t,ccer_price_per_t,ccer_volume_t,ccer_trading_amount_yuan,green_certificate_issued_count,green_certificate_traded_count,green_certificate_volume,green_certificate_price,region,data_class
+NATIONAL_ETS,2024,2024-12-31T00:00:00Z,97.49,year-end closing price,189000000.0,18114000000.0,ETS_2024,,,,,,,,,中国全国市场,REAL_PUBLIC_OFFICIAL
+NATIONAL_ETS,2025,2025-12-31T00:00:00Z,62.36,annual average price,235000000.0,14630000000.0,ETS_CCER_2025,74.63,,,,,,,,中国全国市场,REAL_PUBLIC_OFFICIAL
+NATIONAL_CCER,2025,2025-12-31T00:00:00Z,,annual average price,,,ETS_CCER_2025,,70.76,9219400.0,650000000.0,,,,,中国全国市场,REAL_PUBLIC_OFFICIAL
+NATIONAL_GEC,2024,2024-12-31T00:00:00Z,,annual standalone-trade average,,,GEC_2024,,,,,4734000000.0,446000000.0,446000000.0,5.59,中国全国市场,REAL_PUBLIC_OFFICIAL
+NATIONAL_GEC,2025,2025-12-31T00:00:00Z,,2025 production-year certificate average,,,GEC_2025,,,,,2947000000.0,930000000.0,930000000.0,5.57,中国全国市场,REAL_PUBLIC_OFFICIAL

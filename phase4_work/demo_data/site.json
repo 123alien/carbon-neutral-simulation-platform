@@ -1,0 +1,16 @@
+{
+  "data_classification": "DEMO_SIMULATION",
+  "code": "DEMO-PARK-001",
+  "name": "智慧低碳示范园区",
+  "site_type": "PARK",
+  "timezone": "Asia/Shanghai",
+  "address": "示范园区仿真场景（非真实企业）",
+  "area_m2": 33800,
+  "population": 1580,
+  "position_json": {
+    "coordinate_system": "LOCAL",
+    "x": 0,
+    "y": 0,
+    "z": 0
+  }
+}

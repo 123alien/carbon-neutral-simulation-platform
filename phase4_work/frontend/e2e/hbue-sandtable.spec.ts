@@ -1,0 +1,22 @@
+import {test,expect} from '@playwright/test';
+test('校园沙盘保留轮廓、名称交互，实时刷新不重建画布',async({page,request})=>{
+ test.setTimeout(60000);
+ const sites=await(await request.get('http://127.0.0.1:8000/api/sites')).json();
+ const site=sites.find((s:{code:string})=>s.code==='HBUE');expect(site).toBeTruthy();
+ const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.setViewportSize({width:1920,height:1080});await page.goto(`/3d?site=${site.id}`);
+ await page.getByRole('button',{name:'三维园区',exact:true}).click();
+ const canvas=page.locator('.three-canvas canvas');await expect(canvas).toBeVisible();
+ await expect.poll(()=>page.locator('.campus-label').count()).toBeGreaterThan(0);
+ await expect(page.locator('.three-canvas')).toHaveAttribute('data-background-buildings','117');
+ await expect.poll(async()=>({count:await page.locator('.three-canvas').getAttribute('data-landscape-count'),error:await page.locator('.three-canvas').getAttribute('data-landscape-error'),errors})).toEqual({count:'20',error:null,errors:[]});
+ await canvas.evaluate(el=>el.setAttribute('data-stable-canvas','yes'));
+ await page.waitForTimeout(16000);
+ await expect(canvas).toHaveAttribute('data-stable-canvas','yes');
+ await page.screenshot({path:'../qa_report/hbue-sandtable-refined.png'});
+ await page.locator('.campus-label').first().click();
+ await expect(page.locator('.object-drawer')).toBeVisible();
+ await page.waitForTimeout(700);
+ await page.screenshot({path:'../qa_report/hbue-sandtable-building-details.png'});
+ expect(errors).toEqual([]);
+});

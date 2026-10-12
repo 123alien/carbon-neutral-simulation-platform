@@ -1,0 +1,56 @@
+<script setup lang="ts">
+import { ref, watch } from 'vue';
+
+type Rule={code:string;name:string;unit:string;category:string;formula:string;precision:number;enabled:boolean};
+type Result=Rule&{value:number|null;error:string|null};
+const props=defineProps<{open:boolean}>();
+const emit=defineEmits<{close:[];published:[]}>();
+const loading=ref(false),error=ref(''),message=ref(''),version=ref(0),publishedAt=ref(''),changeNote=ref('');
+const parameters=ref<Record<string,number>>({emission_factor_kg_per_kwh:.57});
+const rules=ref<Rule[]>([]),results=ref<Result[]>([]),history=ref<any[]>([]);
+const historyOpen=ref(false),selectedHistory=ref<any|null>(null),rollbackConfirm=ref<number|null>(null);
+const variables=['electricity_kwh 累计用电(kWh)','water_m3 累计用水(m³)','carbon_t 累计碳排(tCO₂e)','renewable_ratio_pct 可再生能源占比(%)','load_kw 当前负荷(kW)','storage_kwh 储能状态(kWh)','renewable_generation_kwh 当前可再生发电量(kWh)','emission_factor_kg_per_kwh 排放因子'];
+
+async function request(url:string,init?:RequestInit){const response=await fetch(url,init);const text=await response.text();let body:any={};try{body=text?JSON.parse(text):{}}catch{throw new Error('服务返回格式异常')}if(!response.ok)throw new Error(body.detail||'操作失败');return body}
+async function load(){loading.value=true;error.value='';message.value='';try{const body=await request('/api/metric-rules');version.value=body.active_version||0;publishedAt.value=body.published_at||'';parameters.value={...(body.parameters||{})};rules.value=(body.rules||[]).map((r:any)=>({...r}));history.value=body.history||[];await preview()}catch(e){error.value=(e as Error).message}finally{loading.value=false}}
+async function preview(){error.value='';message.value='';try{const body=await request('/api/metric-rules/preview',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({parameters:parameters.value,rules:rules.value,expected_version:version.value})});results.value=body.results||[];message.value=results.value.some(r=>r.error)?'试算完成：存在错误，修正后才能发布':'试算通过，可以发布'}catch(e){error.value=(e as Error).message}}
+async function publish(){loading.value=true;error.value='';try{const body=await request('/api/metric-rules/publish',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({parameters:parameters.value,rules:rules.value,change_note:changeNote.value||'更新动态指标规则',expected_version:version.value})});version.value=body.active_version;publishedAt.value=body.published_at;results.value=body.preview?.results||[];message.value=`版本 V${body.active_version} 已发布并应用到大屏`;changeNote.value='';emit('published')}catch(e){error.value=(e as Error).message}finally{loading.value=false}}
+async function rollback(target:number){if(rollbackConfirm.value!==target){rollbackConfirm.value=target;return}loading.value=true;error.value='';try{const body=await request('/api/metric-rules/rollback',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({target_version:target,expected_version:version.value})});rollbackConfirm.value=null;selectedHistory.value=null;await load();message.value=`已将 V${target} 的规则内容发布为新版本 V${body.active_version}`;emit('published')}catch(e){error.value=(e as Error).message}finally{loading.value=false}}
+function addRule(){rules.value.push({code:`custom_${rules.value.length+1}`,name:'自定义指标',unit:'',category:'自定义指标',formula:'electricity_kwh',precision:2,enabled:true})}
+function removeRule(index:number){rules.value.splice(index,1);results.value=[]}
+const resultFor=(code:string)=>results.value.find(r=>r.code===code);
+function historySummary(item:any){const old=new Map((item.rules||[]).map((r:any)=>[r.code,r]));let changed=0;for(const rule of rules.value){const before:any=old.get(rule.code);if(!before||before.formula!==rule.formula||before.unit!==rule.unit||before.enabled!==rule.enabled)changed++}changed+=(item.rules||[]).filter((r:any)=>!rules.value.some(x=>x.code===r.code)).length;const oldFactor=item.parameters?.emission_factor_kg_per_kwh;const factor=parameters.value.emission_factor_kg_per_kwh;return `${changed}项规则差异 · 排放因子 ${oldFactor??'—'} → ${factor??'—'}`}
+watch(()=>props.open,value=>{if(value)void load()});
+</script>
+
+<template>
+  <div v-if="open" class="rule-backdrop" @click.self="emit('close')">
+    <section class="rule-dialog" role="dialog" aria-modal="true" aria-label="动态指标规则管理">
+      <header><div><small>DYNAMIC METRIC ENGINE</small><h2>动态指标规则管理</h2><p>当前版本 V{{version}} · {{publishedAt?new Date(publishedAt).toLocaleString('zh-CN',{hour12:false}):'尚未发布'}}</p></div><button @click="emit('close')">关闭</button></header>
+      <div class="rule-toolbar">
+        <label>电网排放因子<input v-model.number="parameters.emission_factor_kg_per_kwh" type="number" min="0" max="5" step="0.001"><i>kgCO₂e/kWh</i></label>
+        <label class="change-note">版本说明<input v-model.trim="changeNote" maxlength="100" placeholder="例如：更新2026年度电网排放因子"></label>
+        <button @click="addRule">新增指标</button><button :disabled="loading" @click="preview">试算</button><button class="publish" :disabled="loading" @click="publish">发布新版本</button>
+      </div>
+      <p class="variable-help"><b>可用变量：</b>{{variables.join('；')}}。仅允许四则运算、幂、取余及 abs/min/max/round。</p>
+      <p v-if="error" class="rule-error">{{error}}</p><p v-else-if="message" class="rule-message">{{message}}</p>
+      <div class="rule-table-wrap"><table><thead><tr><th>启用</th><th>指标编码/名称</th><th>分类/单位</th><th>计算公式</th><th>精度</th><th>试算结果</th><th></th></tr></thead><tbody>
+        <tr v-for="(rule,index) in rules" :key="`${rule.code}-${index}`">
+          <td><input v-model="rule.enabled" type="checkbox"></td>
+          <td><input v-model.trim="rule.code" maxlength="40"><input v-model.trim="rule.name" maxlength="40"></td>
+          <td><select v-model="rule.category"><option>碳核算</option><option>能效评价</option><option>自定义指标</option></select><input v-model.trim="rule.unit" maxlength="20" placeholder="单位"></td>
+          <td><textarea v-model.trim="rule.formula" maxlength="300" rows="2"></textarea></td>
+          <td><input v-model.number="rule.precision" type="number" min="0" max="6"></td>
+          <td :class="{bad:resultFor(rule.code)?.error}"><b>{{resultFor(rule.code)?.value??'—'}}</b><i>{{rule.unit}}</i><small>{{resultFor(rule.code)?.error}}</small></td>
+          <td><button class="remove" @click="removeRule(index)">删除</button></td>
+        </tr></tbody></table></div>
+      <section class="history-panel"><button class="history-toggle" @click="historyOpen=!historyOpen">历史版本 {{history.length}} 个 {{historyOpen?'收起':'展开'}}</button><div v-if="historyOpen" class="history-list"><article v-for="item in [...history].reverse()" :key="item.active_version" :class="{selected:selectedHistory?.active_version===item.active_version}" @click="selectedHistory=item"><b>V{{item.active_version}}</b><span>{{item.change_note||'无变更说明'}}</span><small>{{item.published_at?new Date(item.published_at).toLocaleString('zh-CN',{hour12:false}):'时间未记录'}}</small></article></div><div v-if="selectedHistory" class="history-detail"><div><b>V{{selectedHistory.active_version}} 与当前 V{{version}} 对比</b><span>{{historySummary(selectedHistory)}}</span><small>历史规则 {{selectedHistory.rules?.length||0}} 项；当前规则 {{rules.length}} 项</small></div><button :class="{confirm:rollbackConfirm===selectedHistory.active_version}" :disabled="loading" @click="rollback(selectedHistory.active_version)">{{rollbackConfirm===selectedHistory.active_version?'确认发布回滚版本':'回滚到此规则'}}</button></div></section>
+      <footer><span>发布采用版本校验和原子写入；回滚以新版本发布，不覆盖审计历史。</span><button @click="emit('close')">完成</button></footer>
+    </section>
+  </div>
+</template>
+
+<style scoped>
+.rule-backdrop{position:fixed;inset:0;z-index:3000;display:grid;place-items:center;padding:24px;background:#020d13d9;backdrop-filter:blur(5px)}.rule-dialog{width:min(1500px,96vw);max-height:92vh;display:flex;flex-direction:column;border:1px solid #31b9ad;background:#092632;box-shadow:0 18px 70px #000b;color:#dff7f8}.rule-dialog>header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid #28606b;background:linear-gradient(90deg,#0b3a45,#09242f)}.rule-dialog h2{margin:3px 0 0;padding:0;border:0;font-size:20px}.rule-dialog header small{color:#4fe3d1;letter-spacing:2px}.rule-dialog header p{margin:4px 0 0}.rule-toolbar{display:flex;align-items:end;gap:10px;padding:14px 20px;border-bottom:1px solid #234854}.rule-toolbar label{display:grid;grid-template-columns:auto 130px auto;align-items:center;gap:7px;font-size:11px;color:#9fc3ca}.rule-toolbar label.change-note{grid-template-columns:auto 280px}.rule-toolbar input,.rule-table-wrap input,.rule-table-wrap select,.rule-table-wrap textarea{width:100%;border:1px solid #336474;border-radius:3px;background:#0c3240;color:#eaffff;padding:7px;font:11px ui-monospace,Consolas,"Microsoft YaHei"}.rule-toolbar .publish{border-color:#32c9b8;background:#126358;color:white}.variable-help,.rule-error,.rule-message{margin:8px 20px;padding:8px 10px;font-size:10px}.variable-help{background:#0d3340;color:#91bdc5}.rule-error{border-left:3px solid #ff6b63;background:#42272a;color:#ffb3ad}.rule-message{border-left:3px solid #43dfba;background:#123c39;color:#81efd2}.rule-table-wrap{overflow:auto;margin:0 20px;border:1px solid #28515e}.rule-table-wrap table{width:100%;border-collapse:collapse;font-size:11px}.rule-table-wrap th{position:sticky;top:0;z-index:1;padding:9px;background:#0d4350;color:#74e1d4;text-align:left}.rule-table-wrap td{padding:7px;border-top:1px solid #244753;vertical-align:middle}.rule-table-wrap td:nth-child(1),.rule-table-wrap td:nth-child(5),.rule-table-wrap td:nth-child(7){width:58px;text-align:center}.rule-table-wrap td:nth-child(2){width:210px}.rule-table-wrap td:nth-child(3){width:150px}.rule-table-wrap td:nth-child(6){width:150px}.rule-table-wrap td input+input,.rule-table-wrap td select+input{margin-top:5px}.rule-table-wrap textarea{resize:vertical;min-width:360px}.rule-table-wrap td b,.rule-table-wrap td i,.rule-table-wrap td small{display:block}.rule-table-wrap td i{font-style:normal;color:#82aab2}.rule-table-wrap td small{color:#ff9e94}.rule-table-wrap td.bad{background:#48282c}.remove{padding:5px 8px;color:#ffaca6;border-color:#79484a}.rule-dialog>footer{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;color:#7fa5ad;font-size:10px;border-top:1px solid #28515e}
+.history-panel{margin:10px 20px 0;border:1px solid #28515e;background:#08232e}.history-toggle{width:100%;text-align:left;border:0;border-radius:0;background:#0d3441}.history-list{display:flex;gap:7px;overflow:auto;padding:8px}.history-list article{min-width:210px;padding:8px;border:1px solid #28515e;background:#0b2c38;cursor:pointer}.history-list article.selected{border-color:#43d6c7;background:#10454d}.history-list b,.history-list span,.history-list small{display:block}.history-list span{margin:4px 0;color:#b8d6da}.history-list small{color:#719ba4}.history-detail{display:flex;align-items:center;justify-content:space-between;padding:9px 10px;border-top:1px solid #28515e}.history-detail b,.history-detail span,.history-detail small{display:block}.history-detail span{margin:3px 0;color:#78d9cf}.history-detail small{color:#789da5}.history-detail button{border-color:#d59b54;color:#ffd29b}.history-detail button.confirm{background:#8b3d35;border-color:#ff796f;color:white}
+</style>

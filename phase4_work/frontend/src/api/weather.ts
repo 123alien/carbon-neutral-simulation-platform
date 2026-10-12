@@ -1,0 +1,1 @@
+import {http} from './http';import type {WeatherSite} from '@/types';export type WeatherSiteCreate=Omit<WeatherSite,'id'|'created_at'>;export const weatherApi={sites:(enterprise_id:number)=>http.get<never,WeatherSite[]>('/api/weather/sites',{params:{enterprise_id}}),createSite:(payload:WeatherSiteCreate)=>http.post<never,WeatherSite>('/api/weather/sites',payload)}

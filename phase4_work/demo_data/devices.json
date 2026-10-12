@@ -1,0 +1,187 @@
+{
+  "data_classification": "DEMO_SIMULATION",
+  "energy_systems": [
+    {
+      "code": "ES-ELEC",
+      "name": "园区电网系统",
+      "system_type": "ELECTRICITY"
+    },
+    {
+      "code": "ES-PV",
+      "name": "分布式光伏系统",
+      "system_type": "PV"
+    },
+    {
+      "code": "ES-WIND",
+      "name": "风力发电系统",
+      "system_type": "WIND"
+    },
+    {
+      "code": "ES-STORAGE",
+      "name": "储能系统",
+      "system_type": "STORAGE"
+    },
+    {
+      "code": "ES-HVAC",
+      "name": "空调系统",
+      "system_type": "HVAC"
+    },
+    {
+      "code": "ES-LIGHT",
+      "name": "照明系统",
+      "system_type": "LIGHTING"
+    },
+    {
+      "code": "ES-EV",
+      "name": "充电桩系统",
+      "system_type": "EV_CHARGING"
+    }
+  ],
+  "devices": [
+    {
+      "code": "METER-MAIN",
+      "name": "园区总电表",
+      "type": "ELECTRIC_METER",
+      "system": "ES-ELEC",
+      "position": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "code": "METER-B01",
+      "name": "办公楼A电表",
+      "type": "ELECTRIC_METER",
+      "building": "B01",
+      "system": "ES-ELEC",
+      "position": [
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "code": "METER-B02",
+      "name": "办公楼B电表",
+      "type": "ELECTRIC_METER",
+      "building": "B02",
+      "system": "ES-ELEC",
+      "position": [
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "code": "METER-B03",
+      "name": "实验楼电表",
+      "type": "ELECTRIC_METER",
+      "building": "B03",
+      "system": "ES-ELEC",
+      "position": [
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "code": "METER-B04",
+      "name": "综合服务楼电表",
+      "type": "ELECTRIC_METER",
+      "building": "B04",
+      "system": "ES-ELEC",
+      "position": [
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "code": "PV-INV-01",
+      "name": "屋顶光伏系统",
+      "type": "PV",
+      "building": "B01",
+      "system": "ES-PV",
+      "position": [
+        0,
+        14,
+        0
+      ],
+      "capacity_kw": 420
+    },
+    {
+      "code": "WIND-AGG-01",
+      "name": "园区风电机组",
+      "type": "WIND",
+      "building": "B04",
+      "system": "ES-WIND",
+      "position": [
+        15,
+        1,
+        10
+      ],
+      "capacity_kw": 120
+    },
+    {
+      "code": "BESS-01",
+      "name": "园区储能系统",
+      "type": "STORAGE",
+      "building": "B03",
+      "system": "ES-STORAGE",
+      "position": [
+        -8,
+        1,
+        5
+      ]
+    },
+    {
+      "code": "HVAC-B01",
+      "name": "办公楼A空调系统",
+      "type": "HVAC",
+      "building": "B01",
+      "system": "ES-HVAC",
+      "position": [
+        -4,
+        1,
+        -4
+      ]
+    },
+    {
+      "code": "HVAC-B02",
+      "name": "办公楼B空调系统",
+      "type": "HVAC",
+      "building": "B02",
+      "system": "ES-HVAC",
+      "position": [
+        4,
+        1,
+        -4
+      ]
+    },
+    {
+      "code": "LIGHT-AGG",
+      "name": "园区照明系统",
+      "type": "LIGHTING",
+      "building": "B04",
+      "system": "ES-LIGHT",
+      "position": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "code": "EV-AGG-20",
+      "name": "园区充电桩（20台）",
+      "type": "EV_CHARGER",
+      "building": "B04",
+      "system": "ES-EV",
+      "position": [
+        0,
+        1,
+        8
+      ]
+    }
+  ]
+}

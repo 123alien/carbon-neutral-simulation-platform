@@ -1,0 +1,139 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><meta name="source" content="新华网"> <meta name="publishdate" content="2026-05-22"> <meta name="contentid" content="20260522a6cedbcbc2764b80abc85836ee862461"> <meta name="subject" content=""> <meta name="catalogs" content="01009005000"> <meta name="author" content=""> <meta name="publishedtype" content="1"> <meta name="filetype" content="0"> <meta name="pagetype" content="1"> <meta name="templateId" content="b5427b58c834414690d6e6f7dca0826e"> <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> <meta name="SiteName" content="国家能源局"> <meta name="SiteDomain" content="www.nea.gov.cn"> <meta name="SiteIDCode" content="bm62000002号"> <div data="datasource:20260522a6cedbcbc2764b80abc85836ee862461" datatype="content"><meta name="ArticleTitle" content="2025年全国交易绿证9.30亿个 规模创新高"></div> <div data="datasource:20260522a6cedbcbc2764b80abc85836ee862461" datatype="content"><meta name="PubDate" content="2026-05-22 14:23:21"></div> <div data="datasource:20260522a6cedbcbc2764b80abc85836ee862461" datatype="content"><meta name="ContentSource" content="人民日报"></div> <meta name="description" content="国家能源网"> <meta name="keywords" content="国家能源网"> <title data="datasource:20260522a6cedbcbc2764b80abc85836ee862461" datatype="content">
+            2025年全国交易绿证9.30亿个 规模创新高---国家能源局
+        </title> <link href="http://www.nea.gov.cn/static/default/css/public/master_nyj_v1.0.css" rel="stylesheet" type="text/css"> <link href="http://www.nea.gov.cn/static/default/css/article.css" rel="stylesheet" type="text/css"> <link href="http://www.nea.gov.cn/2015nyj/xinban/topbase.css" rel="stylesheet"> <link href="http://www.nea.gov.cn/detail/css/cb_videoPlayer.css" rel="stylesheet"> <script src="http://www.nea.gov.cn/static/default/js/public/jquery-1.9.1.min.js" type="text/javascript"></script> <script language="javascript">
+        $(document).ready(function () {
+
+            var lefttmp = new Image();
+            lefttmp.src = "http://www.xinhuanet.com/photo/static/arr_left.cur";
+            var righttmp = new Image();
+            righttmp.src = "http://www.xinhuanet.com/photo/static/arr_right.cur";
+            leng = $("a", $("#div_currpage")).length;
+
+            if (leng != 0)
+            //curr里有a标签==稿件不止一页
+            {
+
+                //看一共有多少个a标签
+                leng = leng - 1;
+                var nextLin = $("a", $("#div_currpage"))[leng].href; //对于多页的情况，取得下一页的地址
+                var oneword = location.href + "#";
+                if (nextLin == oneword) {
+                    leng = leng - 1;
+                    nextLin = $("a", $("#div_currpage"))[leng].href;
+                }
+                var currurl = location
+                    .href; //当前页链接地址<meta http-equiv="expires" content="Sunday 26 October 2011 01:00 GMT" /> 
+
+                var underpd = currurl.substring(currurl.indexOf("c_") + 2, currurl.indexOf(".htm"));
+                if (underpd.indexOf("_") == -1) {
+
+                    prevLink = location.href; //如果是文章首页，则左键仍是替换到本页面
+                    nextLink = $("a", $("#div_currpage"))[0].href; //下一页的赋值
+                    setTimeout("window.opener=null;window.location.href='" + nextLink + "'", 60000); //30秒跳转到下一页
+                } else
+                //是末页，http://news.xinhuanet.com/photo/2011-08/06/c_121822530.htm
+                {
+                    //当前页分页号判断
+                    var currnum = currurl.indexOf(".htm"); //链接中第一次出现.htm的位置
+                    var underlineindex = currurl.lastIndexOf("_") + 1; //下划线甄别标识，第一页则不是下划线
+                    //下一页的分页号
+                    var nextnum = nextLin.indexOf(".htm"); //链接中第一次出现.htm的位置
+                    var underlinenext = nextLin.lastIndexOf("_") + 1; //下划线甄别标识，第一页则不是下划线
+                    var undernum = nextLin.substr(nextLin.indexOf("c_")).split("_").length - 1;
+
+                    var temp = currurl.substring(underlineindex, currnum); //当前页的分页号
+                    var nexttemp = nextLin.substring(underlinenext, nextnum); //最后a标签的分页号
+                    var boolx = parseInt(temp, 10) > parseInt(nexttemp, 10);
+
+                    if ((boolx) || (undernum == 1)) //末页
+
+                    {
+
+                        if ($("img", $("a", $("#content"))).length == 0) //没有带链接的图片
+
+                        {
+                            prevLink = nextLin;
+                            if (undernum == 1) {
+                                nextLink = nextLin;
+                            } else {
+                                nextLink = prevLink.substr(0, (prevLink.lastIndexOf("_"))) + ".htm";
+                            }
+                            setTimeout("window.opener=null;window.location.href='" + nextLink + "'",
+                                60000); //30秒跳转到下一页
+                        } else //末页正文图片有链接
+                        {
+                            prevLink = nextLin;
+                            nextLink = $("a", $("#content"))[0].href; //把正文第一个带链接的链接地址赋给下一页
+                        }
+
+                    } else //不是末页
+                    {
+
+                        prevLink = $("a", $("#div_currpage"))[0].href; //把正文第一个带链接的链接地址赋给下一页
+                        nextLink = nextLin; //把正文最后一个带链接的链接地址赋给下一页
+                    }
+
+                }
+            } else
+            //只有一页
+            {
+                prevLink = location.href;
+                nextLink = location.href;
+            }
+
+            document.onkeydown = pageEvent;
+
+            function pageEvent(evt) {
+                evt = evt || window.event;
+                var key = evt.which || evt.keyCode;
+                if (key == 37) location = prevLink;
+                if (key == 39) location = nextLink;
+            };
+
+            var lefturl = prevLink;
+            var righturl = nextLink;
+            var imgurl = righturl;
+
+            $("#content img").each(function () {
+                var width = $(this).width();
+                var thisImage = $(this);
+                //alert("01");
+                $(thisImage)[0].onmousemove = function () {
+
+                    if (event.offsetX < width / 2) {
+
+                        this.style.cursor = 'url(' + lefttmp.src + '),auto';
+                        imgurl = lefturl;
+                    } else {
+
+                        this.style.cursor = 'url(' + righttmp.src + '),auto';
+                        imgurl = righturl;
+                    }
+
+                }
+
+                $(thisImage)[0].onmouseup = function () {
+                    top.location = imgurl;
+
+                }
+            });
+
+        });
+    </script></head> <body><script src="http://www.nea.gov.cn/2015nyj/xinban/topnav.js" type="text/javascript"></script> <div class="main-colum"><div class="now-site">您当前位置：<a href="http://www.nea.gov.cn/" target="_blank">首页</a> &gt; 正文</div> <div class="channel-page"><div class="article-title" data="datasource:20260522a6cedbcbc2764b80abc85836ee862461" datatype="content"><div class="hr_10"></div> <div class="titles">
+                        2025年全国交易绿证9.30亿个 规模创新高
+                    </div> <div class="hr_10"></div> <span class="times">
+                        发布时间：2026-05-22
+                    </span> <span class="author">
+                        来源：人民日报
+                    </span> <span class="switchsize"><b class="bigger">大</b><b class="medium">中</b><b class="smaller">小</b></span> <div class="arrow"></div></div> <div class="article-box"><div class="hr_10"></div> <div class="hr_10"></div> <div class="hr_10"></div> <div id="detail" data="datasource:20260522a6cedbcbc2764b80abc85836ee862461" datatype="content"><div class="article-content"><span id="detailContent"><p>&emsp;&emsp;近日，《中国绿色电力证书发展报告（2025）》发布。报告显示，2025年1月—12月，全国共核发绿证29.47亿个，其中可交易绿证18.93亿个。按项目类型分，常规水电、风力发电、太阳能发电及生物质发电项目仍是绿证核发主力。2025年核发绿证较多的5省（区）为云南省、四川省、内蒙古自治区、新疆维吾尔自治区、湖北省，核发绿证数量均超1.3亿个，5省（区）均为可再生能源资源较丰富地区，合计核发数量占全国总量的45.25%。</p><p>&emsp;&emsp;交易规模再创历史新高。2025年全国交易绿证9.30亿个，同比增长1.08倍，其中单独交易绿证6.80亿个，绿色电力交易绿证2.50亿个。截至2025年12月底，全国累计交易绿证14.83亿个，其中绿证单独交易9.95亿个，绿色电力交易绿证4.88亿个。</p><p>&emsp;&emsp;绿证单独交易便利性持续提升。2025年省份间绿证单独交易6.20亿个，占单独交易绿证总量的91.20%，有效助力绿色资源在全国范围内优化配置，推动能源生产大省与消费大省协同发展。省内绿证单独交易5968万个，占单独交易绿证总量的8.80%，主要服务区域内近距离供需匹配。</p><p>&emsp;&emsp;交易主体参与意愿增强。2025年全国参与绿证交易的消费主体约11.11万个，同比增长87.52%，其中企业买家10.79万家、居民个人买家3129名，企业仍是绿证消费的主力军。</p><p>&emsp;&emsp;2025年中国绿证交易价格总体呈现上涨趋势，从绿证单独交易情况看，2023年及以前电量绿证均价为0.72元/个，2024年电量绿证均价为2.12元/个，2025年电量绿证均价为5.57元/个，交易价格呈明显梯度递增趋势，这与新增绿证环境价值认可度高、市场需求旺直接相关。（记者 王云杉）</p></span></div></div> <div class="back-top"></div> <div class="hr_10"></div> <div class="hr_10"></div> <div class="hr_10"></div></div> <div class="article-other"><div class="hr_10"></div> <div class="hr_10"></div> <div class="clear"></div></div> <div class="hr_10"></div> <div class="hr_10"></div> <div class="hr_10"></div></div></div> <script src="http://www.nea.gov.cn/2015nyj/xinban/bottom.js" type="text/javascript"></script> <script src="http://www.nea.gov.cn/static/default/js/public/article-font.js" type="text/javascript"></script> <script src="http://www.nea.gov.cn/detail/js/pager.js"></script> <script src="http://www.nea.gov.cn/detail/js/cb-video.js"></script> <script>
+        $(function () {
+            /* 分页调用 */
+            parsePagingFun({
+                // preText: 'prev',//上一页
+                // nextText: 'next',//下一页
+                id: 'detailContent', //正文分页id
+                num: 8 //显示页码数个数
+            })
+
+        })
+    </script><script src="//imgs.news.cn/webdig/xinhua_webdig.js" language="javascript" type="text/javascript" async></script></body></html>

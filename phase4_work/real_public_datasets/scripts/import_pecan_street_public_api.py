@@ -1,0 +1,27 @@
+"""Preview and optionally confirm the official Pecan Street public HVAC sample."""
+import argparse,csv,json
+from pathlib import Path
+import httpx
+ROOT=Path(__file__).resolve().parents[2];BASE=ROOT/'real_public_datasets'/'pecan_street_public';NORMAL=BASE/'normalized';API='http://127.0.0.1:8000'
+def checked(r):
+ if not r.is_success:raise RuntimeError(f'{r.request.method} {r.request.url}: {r.status_code} {r.text[:800]}')
+ return r.json()
+def rows(n):return list(csv.DictReader((NORMAL/n).open(encoding='utf-8-sig')))
+def main(confirm=False):
+ data=rows('pecan_metrics.csv');preview={'status':'CONFIRMED' if confirm else 'PREVIEW_ONLY','source_file':str((NORMAL/'pecan_metrics.csv').resolve()),'record_count':len(data),'columns':list(data[0]),'sample':data[:5],'metric_counts':{m:sum(x['metric_name']==m for x in data) for m in sorted({x['metric_name'] for x in data})},'time_range':[min(x['timestamp'] for x in data),max(x['timestamp'] for x in data)],'writes_performed':False};(BASE/'preview.json').write_text(json.dumps(preview,ensure_ascii=False,indent=2),encoding='utf-8')
+ if not confirm:print(json.dumps(preview,ensure_ascii=False,indent=2));return
+ with httpx.Client(base_url=API,timeout=600,trust_env=False) as c:
+  ent=next((x for x in checked(c.get('/api/enterprises')) if x['name']=='Pecan Street Public Validation'),None) or checked(c.post('/api/enterprises',json={'name':'Pecan Street Public Validation','region':'US-Texas','industry':'Public residential circuit validation','base_year':2018}))
+  org=next((x for x in checked(c.get('/api/organizations',params={'enterprise_id':ent['id']})) if x.get('code')=='PECAN-PUBLIC'),None) or checked(c.post('/api/organizations',json={'enterprise_id':ent['id'],'name':'Pecan Street Distributed Energy Validation','level':'BUILDING_PARK','code':'PECAN-PUBLIC','metadata_json':{'data_class':'REAL_PUBLIC'}}))
+  site=next((x for x in checked(c.get('/api/sites',params={'enterprise_id':ent['id']})) if x['code']=='PECAN-PUBLIC'),None) or checked(c.post('/api/sites',json={'enterprise_id':ent['id'],'organization_node_id':org['id'],'code':'PECAN-PUBLIC','name':'Distributed Energy Validation Site · Pecan Street','site_type':'OTHER','address':'Austin, Texas, United States','timezone':'UTC','metadata_json':{'data_class':'REAL_PUBLIC','dataset':'Pecan Street public 10 Homes / 1-minute / August 2018','country':'US','sample_homes':[1,2,3],'not_target_china_site':True,'lighting':'BLOCKED_BY_ACCESS','storage':'BLOCKED_BY_ACCESS'}}))
+  system=next((x for x in checked(c.get('/api/energy-systems',params={'site_id':site['id']})) if x['code']=='PECAN-HVAC'),None) or checked(c.post('/api/energy-systems',json={'site_id':site['id'],'code':'PECAN-HVAC','name':'Pecan Street HVAC EnergySystem','system_type':'HVAC','metadata_json':{'data_class':'REAL_PUBLIC'}}))
+  source=next((x for x in checked(c.get('/api/data-sources',params={'enterprise_id':ent['id']})) if x['name']=='Pecan Street official public sample FILE'),None) or checked(c.post('/api/data-sources',json={'enterprise_id':ent['id'],'name':'Pecan Street official public sample FILE','source_type':'FILE','config_json':{'path':str((NORMAL/'pecan_metrics.csv').resolve()),'timezone':'UTC','source_record_id_path':'source_record_id','data_class':'REAL_PUBLIC','dataset':'Pecan Street public sample','preview_file':str((BASE/'preview.json').resolve())}}))
+  old={x['external_id']:x for x in checked(c.get('/api/devices',params={'enterprise_id':ent['id']}))};devices=[]
+  for d in rows('devices.csv'):devices.append(old.get(d['external_id']) or checked(c.post('/api/devices',json={'enterprise_id':ent['id'],'data_source_id':source['id'],'external_id':d['external_id'],'name':d['name'],'device_type':'HVAC','metadata_json':{'data_class':'REAL_PUBLIC','home_id':int(d['home_id']),'circuits':['HVAC Condenser','HVAC Fan'],'equipment_parameters':'MODEL_PARAMETER_FALLBACK_REQUIRED'}})))
+  before=checked(c.get(f"/api/data-sources/{source['id']}/data-quality"));sync=checked(c.post(f"/api/data-sources/{source['id']}/sync")) if before['valid_records']==0 else {'idempotent_resume':True,'inserted':before['valid_records']}
+  points=[];oldp={x['code']:x for x in checked(c.get('/api/metering-points',params={'site_id':site['id']}))};dm={x['external_id']:x for x in devices}
+  for p in rows('metering_points.csv'):points.append(oldp.get(p['code']) or checked(c.post('/api/metering-points',json={'site_id':site['id'],'energy_system_id':system['id'],'device_id':dm[p['device_external_id']]['id'],'data_source_id':source['id'],'code':p['code'],'name':p['name'],'metric_type':p['metric_type'],'energy_type':'ELECTRICITY','unit':'kW','metadata_json':{'data_class':'REAL_PUBLIC','observed':p['metric_type']!='hvac_power_kw','derivation':'condenser + fan' if p['metric_type']=='hvac_power_kw' else None}})))
+  result={'preview':preview,'site':site,'data_source':source,'devices':devices,'metering_points':points,'sync':sync,'quality':checked(c.get(f"/api/data-sources/{source['id']}/data-quality"))};preview['writes_performed']=True
+ (BASE/'import_result.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8');print(json.dumps({'site_id':site['id'],'source_id':source['id'],'devices':len(devices),'points':len(points),'sync':sync,'quality':result['quality']},ensure_ascii=False,indent=2))
+if __name__=='__main__':
+ p=argparse.ArgumentParser();p.add_argument('--confirm',action='store_true');main(p.parse_args().confirm)
